@@ -46,20 +46,20 @@ class RenderWorkerPool;
             };
 
         public:
-            RayCaster(ArgumentMap resolution);
+            RayCaster(ArgumentMap resolution, Parsing_cfg &parsedData);
             ~RayCaster();
 
-            Color renderPixel(int x, int y, Scene &scene);
-            void renderLine(int y, Scene &scene);
+            Color renderPixel(int x, int y, std::shared_ptr<Scene> &scene);
+            void renderLine(int y, std::shared_ptr<Scene> scene);
 
-            void start_rendering(Scene &scene);
+            void start_rendering(std::shared_ptr<Scene> scene);
             void stopRendering();
-            void restartRendering(Scene &scene);
+            void restartRendering(std::shared_ptr<Scene> &scene);
             bool isRaytracingDone() const { return !( getCurrentLine() < _screen.getHeight()) || !renderingActive.load(); }
             bool isRenderingActive() const { return renderingActive.load(); }
             int getCurrentLine() const { return currentLine; }
             void setCurrentLine(int y) {currentLine = y;};
-            void renderLoop(Scene &scene);
+            void renderLoop(std::shared_ptr<Scene> scene);
 
             void saveImage(const std::string& filename) const;
             Screen& getScreen() { return _screen; }

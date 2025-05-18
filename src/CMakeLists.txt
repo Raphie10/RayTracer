@@ -42,7 +42,13 @@ target_link_libraries(raytracer
     sfml-system
     sfml-audio
 )
-add_compile_options(-Wall -Wextra  -Wpedantic -O3)
+add_compile_options(-Wall -Wextra  -Wpedantic)
+option(ENABLE_O3 "Compile with -O3 optimization" OFF)
+
+if(ENABLE_O3)
+    add_compile_options(-O3)
+endif()
+
 # add_compile_options(-pg)
 
 target_link_libraries(raytracer ${LIBCONFIGPP_LIBRARIES})

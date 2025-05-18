@@ -27,19 +27,18 @@ namespace RayTracer {
     {
         currentWriteTime = std::filesystem::last_write_time(_configFile);
         _scene.reset();
-        _parser = std::make_unique<Parsing_cfg>(_configFile);
-        _scene = std::make_unique<Scene> (*_parser, *_libraryHandles);
-        _raycaster = std::make_unique<RayCaster> (_parser->getResolution());
+        _parser.emplace(Parsing_cfg(_configFile));
+        _scene = std::make_shared<Scene> (*_parser, _libraryHandles);
+        _raycaster = std::make_unique<RayCaster> (_parser->getResolution(), *_parser);
     }
 
     void RayTracerApp::run()
     {
         beginingTime = std::chrono::high_resolution_clock::now();
-        _libraryHandles = std::make_unique<LibraryManager> ();
         loadConfigFile();
 
         _viewer = std::make_unique<PpmViewer>("", *this, _raycaster->getScreen().getWidth(), _raycaster->getScreen().getHeight());
-        _raycaster->start_rendering(*_scene);
+        _raycaster->start_rendering(_scene);
         _viewer->start_rendering();
         while (!_raycaster->isRaytracingDone()) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
@@ -51,7 +50,7 @@ namespace RayTracer {
                 try {
                     loadConfigFile();
                     std::cout << "Reloading configuration file..." << std::endl;
-                    _raycaster->restartRendering(*_scene);
+                    _raycaster->restartRendering(_scene);
                     _viewer->resetLastRenderedLine();
                     currentWriteTime = std::filesystem::last_write_time(_configFile);
                 } catch (...){}

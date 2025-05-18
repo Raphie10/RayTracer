@@ -10,19 +10,20 @@
 #include <thread>
 #include <vector>
 #include "RayTracer.hpp"
+#include <memory>
 
 namespace RayTracer {
 
     class RenderWorkerPool {
         public:
-            RenderWorkerPool(RayCaster &raycaster, Scene &scene);
+            RenderWorkerPool(RayCaster &raycaster, std::shared_ptr<Scene> scene);
             ~RenderWorkerPool();
             void startWorkers();
             void worker();
             void stopWorkers();
         private:
             RayCaster &_raycaster;
-            Scene &_scene;
+            std::shared_ptr<Scene> _scene;
             std::vector<std::thread> threads;
             std::atomic<int> lineToRender = 0;
     };

@@ -21,7 +21,6 @@ namespace RayTracer {
     class Scene {
         public:
             Scene(Parsing_cfg &parsedData, LibraryManager &libraryHandles) :
-                backgroundColor(0.2, 0.2, 0.2),
                 _camera(parsedData.getCamInfo())
             {
                 buildScene(parsedData, libraryHandles);
@@ -40,7 +39,7 @@ namespace RayTracer {
             const std::vector<std::unique_ptr<IPrimitive>> &getPrimitives() const { return _primitives; }
             const std::unique_ptr<Node> &getTree() const { return tree; }
             const std::vector<std::unique_ptr<ILights>> &getLights() const { return _lights; }
-            void buildScene(const Parsing_cfg &parsedData, LibraryManager &libraryHandles);
+            void buildScene(Parsing_cfg &parsedData, LibraryManager &libraryHandles);
             void clear() {
                 _primitives.clear();
                 _lights.clear();
@@ -57,9 +56,11 @@ namespace RayTracer {
             void changeCameraOrientation(const Math::Vector3D &direction) {
                 _camera.rotate(direction);
             }
+            Color getAmbientLight() const { return ambientLight; }
             Color getBackgroundColor() const { return backgroundColor; }
         private:
             Color backgroundColor;
+            Color ambientLight;
             Camera _camera;
             std::vector<std::unique_ptr<IPrimitive>> _primitives;
             std::unique_ptr<Node> tree;

@@ -39,23 +39,21 @@ Test(color_tests, color_multiplication) {
     cr_assert_float_eq(result.B, 0.28, 1e-6, "Blue should be 0.28");
 }
 
-// Test de multiplication par un scalaire
 Test(color_tests, color_scalar_multiplication) {
     RayTracer::Color color(0.1, 0.2, 0.3);
-    
+
     RayTracer::Color result = color * 2.0;
-    
+
     cr_assert_float_eq(result.R, 0.2, 1e-6, "Red should be 0.2");
     cr_assert_float_eq(result.G, 0.4, 1e-6, "Green should be 0.4");
     cr_assert_float_eq(result.B, 0.6, 1e-6, "Blue should be 0.6");
 }
 
-// Test de division par un scalaire
 Test(color_tests, color_scalar_division) {
     RayTracer::Color color(0.2, 0.4, 0.6);
-    
+
     RayTracer::Color result = color / 2.0;
-    
+
     cr_assert_float_eq(result.R, 0.1, 1e-6, "Red should be 0.1");
     cr_assert_float_eq(result.G, 0.2, 1e-6, "Green should be 0.2");
     cr_assert_float_eq(result.B, 0.3, 1e-6, "Blue should be 0.3");

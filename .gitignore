@@ -1,0 +1,10 @@
+.vscode/
+*.ppm
+raytracer
+*.o
+*.so
+build
+gmon.out
+analysis.txt
+unit_tests
+unittest

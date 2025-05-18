@@ -17,10 +17,22 @@
 
 namespace RayTracer {
 
-    RayCaster::RayCaster(ArgumentMap resolution) :
+    RayCaster::RayCaster(ArgumentMap resolution, Parsing_cfg &parsedData) :
         _screen(resolution),
         maxDepth(5), samplesPerPixel(1), renderingActive(false), currentLine(0)
     {
+        if (parsedData.getCamInfo()["samplesPerPixel"].exists<int>()) {
+            samplesPerPixel = parsedData.getCamInfo()["samplesPerPixel"].as<int>();
+        }
+        if (parsedData.getCamInfo()["maxDepth"].exists<int>()) {
+            maxDepth = parsedData.getCamInfo()["maxDepth"].as<int>();
+        }
+        if (samplesPerPixel < 1) {
+            throw RayTracerError("Invalid number of samples per pixel");
+        }
+        if (maxDepth < 1) {
+            throw RayTracerError("Invalid maximum depth");
+        }
     }
 
     RayCaster::~RayCaster()
@@ -28,18 +40,18 @@ namespace RayTracer {
         stopRendering();
     }
 
-    void RayCaster::start_rendering(Scene &scene)
+    void RayCaster::start_rendering(std::shared_ptr<Scene> scene)
     {
         if (renderingActive.load()) {
             return;
         }
         currentLine.store(0);
         renderingActive.store(true);
-        std::thread renderThread(&RayCaster::renderLoop, this, std::ref(scene));
+        std::thread renderThread(&RayCaster::renderLoop, this, scene);
         renderThread.detach();
     }
 
-    void RayCaster::restartRendering(Scene &scene)
+    void RayCaster::restartRendering(std::shared_ptr<Scene> &scene)
     {
         stopRendering();
         _screen.resetCompletedLines();
@@ -57,19 +69,21 @@ namespace RayTracer {
     }
 
 
-    Color RayCaster::renderPixel(int x, int y, Scene &scene)
+    Color RayCaster::renderPixel(int x, int y, std::shared_ptr<Scene> &scene)
     {
         Color color(0, 0, 0);
         double u, v;
         _screen.getUV(x, y, u, v);
+        double du = _screen.getPixelWidth();
+        double dv = _screen.getPixelHeight();
         for (int s = 0; s < samplesPerPixel; s++) {
+            double jitteru = u;
+            double jitterv = v;
             if (samplesPerPixel > 1) {
-                double du = 1.0 / _screen.getWidth();
-                double dv = 1.0 / _screen.getHeight();
-                u += du * (rand() / static_cast<double>(RAND_MAX) - 0.5);
-                v += dv * (rand() / static_cast<double>(RAND_MAX) - 0.5);
+                jitteru += du * (rand() / static_cast<double>(RAND_MAX) - 0.5);
+                jitterv += dv * (rand() / static_cast<double>(RAND_MAX) - 0.5);
             }
-            Ray ray = scene.getCamera().generate_ray(u, v);
+            Ray ray = scene->getCamera().generate_ray(jitteru, jitterv);
             color += ray.trace_ray(scene, maxDepth);
         }
         if (samplesPerPixel > 1) {
@@ -83,7 +97,7 @@ namespace RayTracer {
         return color;
     }
 
-    void RayCaster::renderLine(int y, Scene &scene)
+    void RayCaster::renderLine(int y, std::shared_ptr<Scene> scene)
     {
         int width = _screen.getWidth();
         std::vector<Color> lineColors(width);
@@ -101,7 +115,7 @@ namespace RayTracer {
     }
 
 
-    void RayCaster::renderLoop(Scene &scene)
+    void RayCaster::renderLoop(std::shared_ptr<Scene> scene)
     {
         _renderWorkerPool = std::make_unique<RenderWorkerPool> (*this, scene);
         _renderWorkerPool->startWorkers();

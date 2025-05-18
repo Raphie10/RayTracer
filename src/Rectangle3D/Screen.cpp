@@ -12,7 +12,7 @@
 
 namespace RayTracer {
 
-    Screen::Screen(int width, int height) : width(width), height(height)
+    Screen::Screen(int width, int height) : width(width), height(height), pixelHeight(1.0 / height), pixelWidth(1.0 / width)
     {
         pixels.resize(width * height, Color(0, 0, 0));
     }
@@ -21,6 +21,8 @@ namespace RayTracer {
     {
         pixels.resize(width * height, Color(0, 0, 0));
         completedLines.resize(height, false);
+        pixelHeight = 1.0 / height;
+        pixelWidth = 1.0 / width;
     }
 
     Color Screen::getPixel(int x, int y) const

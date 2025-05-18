@@ -25,7 +25,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Release
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -226,6 +226,9 @@ Criterion_INCLUDE_DIR:PATH=/usr/local/include
 
 //Path to a library.
 Criterion_LIBRARY:FILEPATH=/usr/local/lib64/libcriterion.so
+
+//Compile with -O3 optimization
+ENABLE_O3:BOOL=ON
 
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=

@@ -14,12 +14,12 @@
 
 namespace RayTracer
 {
-    Color Ray::computeHitColor(HitInfo &info, const class Scene &scene, int depth) const
+    Color Ray::computeHitColor(HitInfo &info, const std::shared_ptr<Scene> &scene, int depth) const
     {
-        float diffusionLight = 0.1;
-        Color color = (info.color * diffusionLight);
-        for (const auto &light : scene.getLights()) {
-            Color lightColor = light->computeLightingColor(info, scene);
+        // float diffusionLight = 0.1;
+        Color color = (info.color * scene->getAmbientLight());
+        for (const auto &light : scene->getLights()) {
+            Color lightColor = light->computeLightingColor(info, *scene);
             color += lightColor;
         }
         if (info.material.reflectivity > 0 && depth > 1) {
@@ -49,14 +49,14 @@ namespace RayTracer
         });
         return hits;
     }
-    Color Ray::trace_ray(const Scene& scene, int depth)
+    Color Ray::trace_ray(const std::shared_ptr<Scene> &scene, int depth)
     {
         if (depth <= 0) {
-            return scene.getBackgroundColor();
+            return scene->getBackgroundColor();
         }
-        auto hits = find_intersection(scene.getPrimitives(), scene.getTree());
+        auto hits = find_intersection(scene->getPrimitives(), scene->getTree());
         if (hits.size() == 0) {
-            return scene.getBackgroundColor();
+            return scene->getBackgroundColor();
         }
         double curOpacity = 0.0;
         Color color(0, 0, 0);
@@ -69,7 +69,7 @@ namespace RayTracer
             }
         }
         if (curOpacity < 1.0) {
-            color += scene.getBackgroundColor() * (1.0 - curOpacity);
+            color += scene->getBackgroundColor() * (1.0 - curOpacity);
         }
         return color;
     }

@@ -37,43 +37,43 @@ namespace RayTracer {
             material._color = params["color"].as<Color>();
     }
 
-bool intersectCap(const Ray &ray,
-    const Math::Point3D &center,
-    const Math::Vector3D &normal,
-    double radius,
-    const Material &material,
-    const std::string &faceName,
-    HitInfo &info)
-{
-    Math::Vector3D oc = ray.getOrigin() - center;
-    double denom = ray.getDirection().dot(normal);
-    if (std::abs(denom) < 1e-8)
-        return false;
+    bool intersectCap(const Ray &ray,
+        const Math::Point3D &center,
+        const Math::Vector3D &normal,
+        double radius,
+        const Material &material,
+        const std::string &faceName,
+        HitInfo &info)
+    {
+        Math::Vector3D oc = ray.getOrigin() - center;
+        double denom = ray.getDirection().dot(normal);
+        if (std::abs(denom) < 1e-8)
+            return false;
 
-    double t = -oc.dot(normal) / denom;
-    if (t < 0)
-        return false;
+        double t = -oc.dot(normal) / denom;
+        if (t < 0)
+            return false;
 
-    Math::Point3D hitPoint = ray.getOrigin() + ray.getDirection() * t;
-    Math::Vector3D offset = hitPoint - center;
+        Math::Point3D hitPoint = ray.getOrigin() + ray.getDirection() * t;
+        Math::Vector3D offset = hitPoint - center;
 
-    double dist2 = offset.dot(offset) - std::pow(offset.dot(normal), 2);
-    if (dist2 > radius * radius)
-        return false;
+        double dist2 = offset.dot(offset) - std::pow(offset.dot(normal), 2);
+        if (dist2 > radius * radius)
+            return false;
 
-    info.hit = true;
-    info.distance = t;
-    info.point = hitPoint;
-    info.normal = normal;
-    info.material = material;
+        info.hit = true;
+        info.distance = t;
+        info.point = hitPoint;
+        info.normal = normal;
+        info.material = material;
 
-    Math::Vector3D p = hitPoint - center;
-    double u = 0.5 + p.getX() / (2 * radius);
-    double v = 0.5 + p.getZ() / (2 * radius);
+        Math::Vector3D p = hitPoint - center;
+        double u = 0.5 + p.getX() / (2 * radius);
+        double v = 0.5 + p.getZ() / (2 * radius);
 
-    info.color = material.getColor(u, v, faceName);
-    return true;
-}
+        info.color = material.getColor(u, v, faceName);
+        return true;
+    }
 
 
     HitInfo Cylinder::intersect(const Ray& ray) const
@@ -134,6 +134,23 @@ bool intersectCap(const Ray &ray,
     {
         return std::make_unique<Cylinder>(params);
     }
+
+    AABB Cylinder::getBoundingBox() {
+    Math::Point3D p1 = position;
+    Math::Point3D p2 = position + direction * height;
+    
+    double minX = std::min(p1.getX(), p2.getX());
+    double minY = std::min(p1.getY(), p2.getY());
+    double minZ = std::min(p1.getZ(), p2.getZ());
+    double maxX = std::max(p1.getX(), p2.getX());
+    double maxY = std::max(p1.getY(), p2.getY());
+    double maxZ = std::max(p1.getZ(), p2.getZ());
+    
+    return AABB(
+        Math::Point3D(minX - radius, minY - radius, minZ - radius),
+        Math::Point3D(maxX + radius, maxY + radius, maxZ + radius)
+    );
+}
 
     extern "C" {
         const char *getPrimitiveName() {

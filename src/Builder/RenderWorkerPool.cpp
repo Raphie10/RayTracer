@@ -8,7 +8,7 @@
 #include "RenderWorkerPool.hpp"
 
 namespace RayTracer {
-    RenderWorkerPool::RenderWorkerPool(RayCaster &raycaster, Scene &scene) :
+    RenderWorkerPool::RenderWorkerPool(RayCaster &raycaster, std::shared_ptr<Scene> scene) :
         _raycaster(raycaster), _scene(scene)
     {
     }

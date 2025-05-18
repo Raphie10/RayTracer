@@ -183,7 +183,7 @@ namespace RayTracer {
 
     void PpmViewer::manageMovementInput(const sf::Event &event)
     {
-        std::unique_ptr<RayTracer::Scene> &scene = _rayTracerApp.getScene();
+        std::shared_ptr<RayTracer::Scene> &scene = _rayTracerApp.getScene();
         Math::Vector3D forward = scene->getCameraDirection();
         Math::Vector3D right = scene->getCameraRight();
         Math::Vector3D up(0, 1, 0);
@@ -214,7 +214,7 @@ namespace RayTracer {
                     _rayTracerApp.getScene()->moveCamera(Math::Vector3D(0, -speed, 0) * up);
                     break;
             }
-            _rayTracerApp.getRayCaster()->restartRendering(*_rayTracerApp.getScene());
+            _rayTracerApp.getRayCaster()->restartRendering(_rayTracerApp.getScene());
             lastRenderedLine = 0;
         }
     }
@@ -230,7 +230,7 @@ namespace RayTracer {
         } else if (event.key.code == sf::Keyboard::Down) {
             _rayTracerApp.getScene()->changeCameraOrientation(Math::Vector3D(-5, 0, 0));
         }
-        _rayTracerApp.getRayCaster()->restartRendering(*_rayTracerApp.getScene());
+        _rayTracerApp.getRayCaster()->restartRendering(_rayTracerApp.getScene());
         lastRenderedLine = 0;
     }
 
@@ -251,7 +251,7 @@ namespace RayTracer {
                 if (event.type == sf::Event::KeyPressed) {
                     if (event.key.code == sf::Keyboard::R) {
                         darkenImage(displayImage, 0.5f);
-                        _rayTracerApp.getRayCaster()->restartRendering(*_rayTracerApp.getScene());
+                        _rayTracerApp.getRayCaster()->restartRendering(_rayTracerApp.getScene());
                         lastRenderedLine = 0;
                     }
                     manageMovementInput(event);

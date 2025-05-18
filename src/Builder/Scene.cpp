@@ -17,8 +17,20 @@ namespace RayTracer {
         _lights.clear();
     }
 
-    void Scene::buildScene(const Parsing_cfg &parsedData, LibraryManager &libraryHandles)
+    void Scene::buildScene(Parsing_cfg &parsedData, LibraryManager &libraryHandles)
     {
+        if (parsedData.getCamInfo()["backgroundColor"].exists<ArgumentMap>()) {
+            ArgumentMap color = parsedData.getCamInfo()["backgroundColor"].as<ArgumentMap>();
+            backgroundColor = Color(double(color["r"].as<int>() / 255.0), double(color["g"].as<int>() / 255.0), double(color["b"].as<int>() / 255.0));
+        } else {
+            backgroundColor = Color(0.2, 0.2, 0.2);
+        }
+        if (parsedData.getCamInfo()["ambientLight"].exists<ArgumentMap>()) {
+            ArgumentMap color = parsedData.getCamInfo()["ambientLight"].as<ArgumentMap>();
+            ambientLight = Color(color["r"].as<int>() / 255.0, color["g"].as<int>() / 255.0, color["b"].as<int>() / 255.0);
+        } else {
+            ambientLight = Color(0.1, 0.1, 0.1);
+        }
         for (const auto &i : parsedData.getMaterialsInfo()) {
             materials[i.first] = Material(i.first, i.second);
         }

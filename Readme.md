@@ -87,6 +87,13 @@ camera = {
     fieldOfView = 75.0;
     position = { x = 0.0; y = 4.0; z = 11.0; };
     rotation = { x = 0; y = 0; z = -1; };
+
+    # Paramètres avancés de rendu
+    backgroundColor = { r = 0; g = 0; b = 0; };     # Couleur de fond
+    ambientLight = { r = 26; g = 26; b = 26; };     # Éclairage ambiant
+    samplesPerPixel = 1;                           # Nombre d'échantillons par pixel (anti-aliasing)
+    maxDepth = 5;                                  # Profondeur maximale des réflexions/réfractions
+
     resolution = {
         width = 1280;
         height = 720;
@@ -98,6 +105,7 @@ primitives = {
         {
           x = 0.0; y = 0.0; z = 0.0; r = 1.0;
           color = { r = 255; g = 0; b = 0; };
+          materials = "one";
         }
     );
     # Autres primitives...
@@ -112,6 +120,12 @@ lights = {
         }
     );
 };
+
+materials = {
+    one = {
+        texture = "model/Textures/us.jpg";
+    };
+}
 ```
 
 ## 🌐 Générateur de Configuration Web

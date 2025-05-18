@@ -1,7 +1,7 @@
 $!
 mkdir -p build
 cd build
-cmake ..
+cmake  -DENABLE_O3=ON ..
 cmake --build .
 if [ $? -ne 0 ]; then
     echo "Build failed !"

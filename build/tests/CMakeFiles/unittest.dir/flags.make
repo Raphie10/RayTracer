@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/prevost/delivery_tek2/RayTracer/src -I/home/prevost/delivery_tek2/RayTracer/src/Vectors -I/home/prevost/delivery_tek2/RayTracer/src/Points -I/home/prevost/delivery_tek2/RayTracer/src/Interfaces -I/home/prevost/delivery_tek2/RayTracer/src/Parsing -I/home/prevost/delivery_tek2/RayTracer/src/Color -I/home/prevost/delivery_tek2/RayTracer/src/Ray -I/home/prevost/delivery_tek2/RayTracer/src/BVHBuilder -I/home/prevost/delivery_tek2/RayTracer/src/Rectangle3D -I/home/prevost/delivery_tek2/RayTracer/src/Camera
 
-CXX_FLAGS = -std=gnu++17 --coverage
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 --coverage
 
