@@ -1,0 +1,55 @@
+/*
+** EPITECH PROJECT, 2025
+** raytracer
+** File description:
+** RayTracerApp
+*/
+
+#include "RayTracerApp.hpp"
+#include "../Builder/RayTracer.hpp"
+#include "../Visualization/PpmViewer.hpp"
+#include "../Rectangle3D/Screen.hpp"
+#include "../Builder/LibraryManager.hpp"
+#include "../Builder/Scene.hpp"
+#include "RayTracerApp.hpp"
+#include <memory>
+#include <chrono>
+#include <iomanip>
+
+namespace RayTracer {
+
+    RayTracerApp::~RayTracerApp()
+    {
+    }
+
+    void RayTracerApp::run()
+    {
+        beginingTime = std::chrono::high_resolution_clock::now();
+        _libraryHandles = std::make_unique<LibraryManager> ();
+        _parser = std::make_unique<Parsing_cfg>(_configFile);
+        _scene = std::make_unique<Scene> (*_parser, *_libraryHandles);
+        _raycaster = std::make_unique<RayCaster> (_parser->getResolution());
+
+        _viewer = std::make_unique<PpmViewer>("", *this, _raycaster->getScreen().getWidth(), _raycaster->getScreen().getHeight());
+        _raycaster->start_rendering(*_scene);
+        _viewer->start_rendering();
+        while (!_raycaster->isRaytracingDone()) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+        displayTime();
+        while (_viewer->isDisplayActive()) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+        _viewer->stopDisplay();
+        std::cout << "Rendering completed." << std::endl;
+        // viewer.clear();
+    }
+
+    void RayTracerApp::displayTime()
+    {
+        auto endTime = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - beginingTime);
+        double seconds = duration.count() / 1000000.0;
+        std::cout << "Rendering time: " << std::fixed << std::setprecision(3) << seconds << " s" << std::endl;
+    }
+}
