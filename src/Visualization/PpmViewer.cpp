@@ -92,9 +92,9 @@ namespace RayTracer {
 
     void PpmViewer::start_rendering()
     {
-        if (displayActive.load()) {
-            return;
-        }
+        // if (displayActive.load()) {
+        //     return;
+        // }
         // stopDisplay();
         lastRenderedLine = 0;
         displayActive.store(true);
@@ -110,6 +110,7 @@ namespace RayTracer {
         if (displayThread.joinable()) {
             displayThread.join();
         }
+        displayActive.store(true);
         displayThread = std::thread(&PpmViewer::displayLoop, this);
     }
 
@@ -272,7 +273,7 @@ namespace RayTracer {
                     }
                 }
             }
-            window.clear(sf::Color::Black);
+            // window.clear(sf::Color::Black);
             window.draw(sprite);
             window.display();
 

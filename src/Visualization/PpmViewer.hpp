@@ -45,6 +45,7 @@ namespace RayTracer {
             void stopDisplay();
             void displayLoop();
             void updateTexture();
+            void resetLastRenderedLine() { lastRenderedLine = 0; }
             bool isMovementKey(sf::Keyboard::Key key) const;
             bool isDisplayActive() const { return displayActive.load(); }
             bool loadEndMusic(const std::string& musicFile);

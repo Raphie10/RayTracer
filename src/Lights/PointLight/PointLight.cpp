@@ -26,7 +26,7 @@ namespace RayTracer {
         lightDir = lightDir.normalize();
         const double bias = 1e-4;
         Ray ray(info.point + info.normal * bias, lightDir);
-        auto hits = ray.find_intersection(scene.getPrimitives());
+        auto hits = ray.find_intersection(scene.getPrimitives(), scene.getTree());
         Color filteredLightColor = _color;
             for (const auto& hit : hits) {
                 if (hit.distance >= distance)

@@ -12,6 +12,7 @@
 #include "../Builder/LibraryManager.hpp"
 #include "../Builder/Scene.hpp"
 #include "RayTracerApp.hpp"
+#include <filesystem>
 #include <memory>
 #include <chrono>
 #include <iomanip>
@@ -22,13 +23,20 @@ namespace RayTracer {
     {
     }
 
+    void RayTracerApp::loadConfigFile()
+    {
+        currentWriteTime = std::filesystem::last_write_time(_configFile);
+        _scene.reset();
+        _parser = std::make_unique<Parsing_cfg>(_configFile);
+        _scene = std::make_unique<Scene> (*_parser, *_libraryHandles);
+        _raycaster = std::make_unique<RayCaster> (_parser->getResolution());
+    }
+
     void RayTracerApp::run()
     {
         beginingTime = std::chrono::high_resolution_clock::now();
         _libraryHandles = std::make_unique<LibraryManager> ();
-        _parser = std::make_unique<Parsing_cfg>(_configFile);
-        _scene = std::make_unique<Scene> (*_parser, *_libraryHandles);
-        _raycaster = std::make_unique<RayCaster> (_parser->getResolution());
+        loadConfigFile();
 
         _viewer = std::make_unique<PpmViewer>("", *this, _raycaster->getScreen().getWidth(), _raycaster->getScreen().getHeight());
         _raycaster->start_rendering(*_scene);
@@ -39,10 +47,18 @@ namespace RayTracer {
         displayTime();
         while (_viewer->isDisplayActive()) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            if (std::filesystem::last_write_time(_configFile) != currentWriteTime) {
+                try {
+                    loadConfigFile();
+                    std::cout << "Reloading configuration file..." << std::endl;
+                    _raycaster->restartRendering(*_scene);
+                    _viewer->resetLastRenderedLine();
+                    currentWriteTime = std::filesystem::last_write_time(_configFile);
+                } catch (...){}
+            }
         }
         _viewer->stopDisplay();
         std::cout << "Rendering completed." << std::endl;
-        // viewer.clear();
     }
 
     void RayTracerApp::displayTime()

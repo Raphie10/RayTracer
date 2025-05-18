@@ -293,12 +293,12 @@ tests/clean: tests/CMakeFiles/unittest.dir/clean
 src/CMakeFiles/raytracer.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/raytracer.dir/build.make src/CMakeFiles/raytracer.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/raytracer.dir/build.make src/CMakeFiles/raytracer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75 "Built target raytracer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75 "Built target raytracer"
 .PHONY : src/CMakeFiles/raytracer.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/raytracer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 16
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/raytracer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/raytracer.dir/rule
@@ -319,12 +319,12 @@ src/CMakeFiles/raytracer.dir/clean:
 src/Primitives/Plane/CMakeFiles/plane.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/Primitives/Plane/CMakeFiles/plane.dir/build.make src/Primitives/Plane/CMakeFiles/plane.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/Primitives/Plane/CMakeFiles/plane.dir/build.make src/Primitives/Plane/CMakeFiles/plane.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=44,45,46,47,48,49,50 "Built target plane"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=44,45,46,47,48,49 "Built target plane"
 .PHONY : src/Primitives/Plane/CMakeFiles/plane.dir/all
 
 # Build rule for subdir invocation for target.
 src/Primitives/Plane/CMakeFiles/plane.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Primitives/Plane/CMakeFiles/plane.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 0
 .PHONY : src/Primitives/Plane/CMakeFiles/plane.dir/rule
@@ -371,7 +371,7 @@ src/Primitives/Sphere/CMakeFiles/sphere.dir/clean:
 src/Primitives/Cone/CMakeFiles/cone.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/Primitives/Cone/CMakeFiles/cone.dir/build.make src/Primitives/Cone/CMakeFiles/cone.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/Primitives/Cone/CMakeFiles/cone.dir/build.make src/Primitives/Cone/CMakeFiles/cone.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=8,9,10,11,12,13 "Built target cone"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Built target cone"
 .PHONY : src/Primitives/Cone/CMakeFiles/cone.dir/all
 
 # Build rule for subdir invocation for target.
@@ -397,12 +397,12 @@ src/Primitives/Cone/CMakeFiles/cone.dir/clean:
 src/Primitives/Cylinder/CMakeFiles/cylinder.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/Primitives/Cylinder/CMakeFiles/cylinder.dir/build.make src/Primitives/Cylinder/CMakeFiles/cylinder.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/Primitives/Cylinder/CMakeFiles/cylinder.dir/build.make src/Primitives/Cylinder/CMakeFiles/cylinder.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=14,15,16,17,18,19 "Built target cylinder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=13,14,15,16,17,18,19 "Built target cylinder"
 .PHONY : src/Primitives/Cylinder/CMakeFiles/cylinder.dir/all
 
 # Build rule for subdir invocation for target.
 src/Primitives/Cylinder/CMakeFiles/cylinder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Primitives/Cylinder/CMakeFiles/cylinder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 0
 .PHONY : src/Primitives/Cylinder/CMakeFiles/cylinder.dir/rule
@@ -423,7 +423,7 @@ src/Primitives/Cylinder/CMakeFiles/cylinder.dir/clean:
 src/Primitives/Donut/CMakeFiles/donut.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/Primitives/Donut/CMakeFiles/donut.dir/build.make src/Primitives/Donut/CMakeFiles/donut.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/Primitives/Donut/CMakeFiles/donut.dir/build.make src/Primitives/Donut/CMakeFiles/donut.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=29,30,31,32,33,34 "Built target donut"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=30,31,32,33,34,35 "Built target donut"
 .PHONY : src/Primitives/Donut/CMakeFiles/donut.dir/all
 
 # Build rule for subdir invocation for target.
@@ -475,12 +475,12 @@ src/Primitives/Triangle/CMakeFiles/triangle.dir/clean:
 src/Primitives/ObjFile/CMakeFiles/objfile.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/Primitives/ObjFile/CMakeFiles/objfile.dir/build.make src/Primitives/ObjFile/CMakeFiles/objfile.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/Primitives/ObjFile/CMakeFiles/objfile.dir/build.make src/Primitives/ObjFile/CMakeFiles/objfile.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=35,36,37,38,39,40,41,42,43 "Built target objfile"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=36,37,38,39,40,41,42,43 "Built target objfile"
 .PHONY : src/Primitives/ObjFile/CMakeFiles/objfile.dir/all
 
 # Build rule for subdir invocation for target.
 src/Primitives/ObjFile/CMakeFiles/objfile.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Primitives/ObjFile/CMakeFiles/objfile.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 0
 .PHONY : src/Primitives/ObjFile/CMakeFiles/objfile.dir/rule
@@ -501,12 +501,12 @@ src/Primitives/ObjFile/CMakeFiles/objfile.dir/clean:
 src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/build.make src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/build.make src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target boundingbox"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target boundingbox"
 .PHONY : src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/all
 
 # Build rule for subdir invocation for target.
 src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 0
 .PHONY : src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/rule
@@ -527,12 +527,12 @@ src/Primitives/BoundingBox/CMakeFiles/boundingbox.dir/clean:
 src/Lights/PointLight/CMakeFiles/pointLight.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/Lights/PointLight/CMakeFiles/pointLight.dir/build.make src/Lights/PointLight/CMakeFiles/pointLight.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/Lights/PointLight/CMakeFiles/pointLight.dir/build.make src/Lights/PointLight/CMakeFiles/pointLight.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=51,52,53,54,55,56,57,58 "Built target pointLight"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=50,51,52,53,54,55,56,57,58,59 "Built target pointLight"
 .PHONY : src/Lights/PointLight/CMakeFiles/pointLight.dir/all
 
 # Build rule for subdir invocation for target.
 src/Lights/PointLight/CMakeFiles/pointLight.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Lights/PointLight/CMakeFiles/pointLight.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 0
 .PHONY : src/Lights/PointLight/CMakeFiles/pointLight.dir/rule
@@ -553,12 +553,12 @@ src/Lights/PointLight/CMakeFiles/pointLight.dir/clean:
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=20,21,22,23,24,25,26,27,28 "Built target directionalLight"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=20,21,22,23,24,25,26,27,28,29 "Built target directionalLight"
 .PHONY : src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/all
 
 # Build rule for subdir invocation for target.
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/prevost/delivery_tek2/RayTracer/build/CMakeFiles 0
 .PHONY : src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/rule

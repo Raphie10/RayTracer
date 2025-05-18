@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/AABB.cpp" "tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/AABB.cpp.o" "gcc" "tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/AABB.cpp.o.d"
+  "/home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp" "tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o" "gcc" "tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o.d"
   "/home/prevost/delivery_tek2/RayTracer/src/Camera/Camera.cpp" "tests/CMakeFiles/unittest.dir/__/src/Camera/Camera.cpp.o" "gcc" "tests/CMakeFiles/unittest.dir/__/src/Camera/Camera.cpp.o.d"
   "/home/prevost/delivery_tek2/RayTracer/src/Color/Color.cpp" "tests/CMakeFiles/unittest.dir/__/src/Color/Color.cpp.o" "gcc" "tests/CMakeFiles/unittest.dir/__/src/Color/Color.cpp.o.d"
   "/home/prevost/delivery_tek2/RayTracer/src/Materials/Texture.cpp" "tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o" "gcc" "tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o.d"

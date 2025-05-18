@@ -23,6 +23,7 @@ namespace RayTracer {
             materials[i.first] = Material(i.first, i.second);
         }
         const std::unordered_map<std::string, std::vector<ArgumentMap>> &primitivesInfo = parsedData.getPrimitiveInfo();
+        std::vector<std::unique_ptr<IPrimitive>> primitives;
         for (const auto &primitive : primitivesInfo) {
             std::unique_ptr<DynamicLibrary> &currentPrimitive = libraryHandles.getCurrentLibrary(primitive.first, "getPrimitiveName");
 
@@ -33,9 +34,18 @@ namespace RayTracer {
                     std::string materialName = params["material"].as<std::string>();
                     params["material"] = std::ref(this->materials[materialName]);
                 }
-                addPrimitive(constructor(params));
+                primitives.push_back(constructor(params));
+                // addPrimitive(constructor(params));
             }
         }
+        std::vector<std::unique_ptr<IPrimitive>> treePrimitives;
+        for (auto &primitive : primitives) {
+            if (primitive->getBoundingBox().isNull())
+                _primitives.push_back(std::move(primitive));
+            else
+                treePrimitives.push_back(std::move(primitive));
+        }
+        tree = std::make_unique<Node>(std::move(treePrimitives));
 
         const std::unordered_map<std::string, std::vector<ArgumentMap>> &lightsInfo = parsedData.getLightsInfo();
             for (const auto &light : lightsInfo) {

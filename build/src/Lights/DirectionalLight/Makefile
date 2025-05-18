@@ -178,6 +178,54 @@ __/ALights.cpp.s:
 	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/ALights.cpp.s
 .PHONY : __/ALights.cpp.s
 
+__/__/BVHBuilder/AABB.o: __/__/BVHBuilder/AABB.cpp.o
+.PHONY : __/__/BVHBuilder/AABB.o
+
+# target to build an object file
+__/__/BVHBuilder/AABB.cpp.o:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o
+.PHONY : __/__/BVHBuilder/AABB.cpp.o
+
+__/__/BVHBuilder/AABB.i: __/__/BVHBuilder/AABB.cpp.i
+.PHONY : __/__/BVHBuilder/AABB.i
+
+# target to preprocess a source file
+__/__/BVHBuilder/AABB.cpp.i:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.i
+.PHONY : __/__/BVHBuilder/AABB.cpp.i
+
+__/__/BVHBuilder/AABB.s: __/__/BVHBuilder/AABB.cpp.s
+.PHONY : __/__/BVHBuilder/AABB.s
+
+# target to generate assembly for a file
+__/__/BVHBuilder/AABB.cpp.s:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.s
+.PHONY : __/__/BVHBuilder/AABB.cpp.s
+
+__/__/BVHBuilder/BinaryTree.o: __/__/BVHBuilder/BinaryTree.cpp.o
+.PHONY : __/__/BVHBuilder/BinaryTree.o
+
+# target to build an object file
+__/__/BVHBuilder/BinaryTree.cpp.o:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o
+.PHONY : __/__/BVHBuilder/BinaryTree.cpp.o
+
+__/__/BVHBuilder/BinaryTree.i: __/__/BVHBuilder/BinaryTree.cpp.i
+.PHONY : __/__/BVHBuilder/BinaryTree.i
+
+# target to preprocess a source file
+__/__/BVHBuilder/BinaryTree.cpp.i:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.i
+.PHONY : __/__/BVHBuilder/BinaryTree.cpp.i
+
+__/__/BVHBuilder/BinaryTree.s: __/__/BVHBuilder/BinaryTree.cpp.s
+.PHONY : __/__/BVHBuilder/BinaryTree.s
+
+# target to generate assembly for a file
+__/__/BVHBuilder/BinaryTree.cpp.s:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.s
+.PHONY : __/__/BVHBuilder/BinaryTree.cpp.s
+
 __/__/Builder/RayTracer.o: __/__/Builder/RayTracer.cpp.o
 .PHONY : __/__/Builder/RayTracer.o
 
@@ -385,6 +433,12 @@ help:
 	@echo "... __/ALights.o"
 	@echo "... __/ALights.i"
 	@echo "... __/ALights.s"
+	@echo "... __/__/BVHBuilder/AABB.o"
+	@echo "... __/__/BVHBuilder/AABB.i"
+	@echo "... __/__/BVHBuilder/AABB.s"
+	@echo "... __/__/BVHBuilder/BinaryTree.o"
+	@echo "... __/__/BVHBuilder/BinaryTree.i"
+	@echo "... __/__/BVHBuilder/BinaryTree.s"
 	@echo "... __/__/Builder/RayTracer.o"
 	@echo "... __/__/Builder/RayTracer.i"
 	@echo "... __/__/Builder/RayTracer.s"

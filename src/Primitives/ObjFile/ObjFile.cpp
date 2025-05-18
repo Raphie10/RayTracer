@@ -233,9 +233,20 @@ namespace RayTracer {
 
     HitInfo ObjFile::intersect(const Ray& ray) const
     {
+
+        std::vector<RayTracer::HitInfo> hits = tree->intersects(ray);
+        if (hits.empty()) {
+            return HitInfo();
+        }
+        double minDistance = std::numeric_limits<double>::infinity();
         HitInfo closestHit;
-        closestHit.hit = false;
-        closestHit = tree->intersects(ray);
+
+        for (const auto& hit : hits) {
+            if (hit.distance >= 0.0 && hit.distance < minDistance) {
+                closestHit = hit;
+                minDistance = hit.distance;
+            }
+        }
         return closestHit;
     }
 

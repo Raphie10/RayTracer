@@ -10,6 +10,7 @@
 #include "IPrimitive.hpp"
 #include "ILights.hpp"
 #include "../Builder/Scene.hpp"
+#include "../BVHBuilder/BinaryTree.hpp"
 
 namespace RayTracer
 {
@@ -31,7 +32,7 @@ namespace RayTracer
         }
         return color;
     }
-    std::vector<HitInfo> Ray::find_intersection(const std::vector<std::unique_ptr<IPrimitive>> &primitives) const
+    std::vector<HitInfo> Ray::find_intersection(const std::vector<std::unique_ptr<IPrimitive>> &primitives, const std::unique_ptr<Node> &tree) const
     {
         std::vector<HitInfo> hits;
         for (const auto& element : primitives) {
@@ -40,6 +41,8 @@ namespace RayTracer
                 hits.push_back(hitInfo);
             }
         }
+        auto treeIntersect = tree->intersects(*this);
+        hits.insert(hits.end(), treeIntersect.begin(), treeIntersect.end());
 
         std::sort(hits.begin(), hits.end(), [](const HitInfo& a, const HitInfo& b) {
             return a.distance < b.distance;
@@ -51,7 +54,7 @@ namespace RayTracer
         if (depth <= 0) {
             return scene.getBackgroundColor();
         }
-        auto hits = find_intersection(scene.getPrimitives());
+        auto hits = find_intersection(scene.getPrimitives(), scene.getTree());
         if (hits.size() == 0) {
             return scene.getBackgroundColor();
         }

@@ -237,10 +237,24 @@ tests/CMakeFiles/unittest.dir/__/src/Ray/Ray.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unittest.dir/__/src/Ray/Ray.cpp.s"
 	cd /home/prevost/delivery_tek2/RayTracer/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/prevost/delivery_tek2/RayTracer/src/Ray/Ray.cpp -o CMakeFiles/unittest.dir/__/src/Ray/Ray.cpp.s
 
+tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o: tests/CMakeFiles/unittest.dir/flags.make
+tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp
+tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o: tests/CMakeFiles/unittest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o"
+	cd /home/prevost/delivery_tek2/RayTracer/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o -MF CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o.d -o CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp
+
+tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.i"
+	cd /home/prevost/delivery_tek2/RayTracer/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp > CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.i
+
+tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.s"
+	cd /home/prevost/delivery_tek2/RayTracer/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp -o CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.s
+
 tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o: tests/CMakeFiles/unittest.dir/flags.make
 tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/Materials/Texture.cpp
 tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o: tests/CMakeFiles/unittest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o"
 	cd /home/prevost/delivery_tek2/RayTracer/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o -MF CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o.d -o CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/Materials/Texture.cpp
 
 tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.i: cmake_force
@@ -265,6 +279,7 @@ unittest_OBJECTS = \
 "CMakeFiles/unittest.dir/__/src/Parsing/ArgumentMap.cpp.o" \
 "CMakeFiles/unittest.dir/__/src/Camera/Camera.cpp.o" \
 "CMakeFiles/unittest.dir/__/src/Ray/Ray.cpp.o" \
+"CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o" \
 "CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o"
 
 # External object files for target unittest
@@ -282,10 +297,11 @@ unittest_EXTERNAL_OBJECTS =
 /home/prevost/delivery_tek2/RayTracer/unittest: tests/CMakeFiles/unittest.dir/__/src/Parsing/ArgumentMap.cpp.o
 /home/prevost/delivery_tek2/RayTracer/unittest: tests/CMakeFiles/unittest.dir/__/src/Camera/Camera.cpp.o
 /home/prevost/delivery_tek2/RayTracer/unittest: tests/CMakeFiles/unittest.dir/__/src/Ray/Ray.cpp.o
+/home/prevost/delivery_tek2/RayTracer/unittest: tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o
 /home/prevost/delivery_tek2/RayTracer/unittest: tests/CMakeFiles/unittest.dir/__/src/Materials/Texture.cpp.o
 /home/prevost/delivery_tek2/RayTracer/unittest: tests/CMakeFiles/unittest.dir/build.make
 /home/prevost/delivery_tek2/RayTracer/unittest: tests/CMakeFiles/unittest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable /home/prevost/delivery_tek2/RayTracer/unittest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable /home/prevost/delivery_tek2/RayTracer/unittest"
 	cd /home/prevost/delivery_tek2/RayTracer/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unittest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

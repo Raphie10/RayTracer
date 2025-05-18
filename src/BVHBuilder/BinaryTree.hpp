@@ -25,7 +25,8 @@ namespace RayTracer {
 
             bool isLeaf() const { return !right && !left; }
 
-            HitInfo intersects(const Ray &ray) const;
+            std::vector<HitInfo> intersects(const Ray &ray) const;
+            AABB getBoundingBox() const { return boundingBox; }
 
             ~Node() = default;
 

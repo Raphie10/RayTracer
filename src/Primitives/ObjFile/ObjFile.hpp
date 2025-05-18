@@ -35,7 +35,7 @@ namespace RayTracer {
                 return std::unique_ptr<IPrimitive>();
             }
             AABB getBoundingBox() {
-                return AABB();
+                return tree->getBoundingBox();
             }
 
             class Face {

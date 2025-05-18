@@ -32,7 +32,10 @@ namespace RayTracer {
             std::string getName() const override;
             std::unique_ptr<IPrimitive> create(const std::vector<double>& params) override;
             AABB getBoundingBox() {
-                return AABB();
+                return AABB(
+                    Math::Point3D(position.getX() - radius, position.getY(), position.getZ() - radius),
+                    Math::Point3D(position.getX() + radius, position.getY() + height, position.getZ() + radius)
+                );
             }
 
             // Getters

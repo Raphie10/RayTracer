@@ -154,6 +154,30 @@ __/src/BVHBuilder/AABB.cpp.s:
 	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unittest.dir/build.make tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/AABB.cpp.s
 .PHONY : __/src/BVHBuilder/AABB.cpp.s
 
+__/src/BVHBuilder/BinaryTree.o: __/src/BVHBuilder/BinaryTree.cpp.o
+.PHONY : __/src/BVHBuilder/BinaryTree.o
+
+# target to build an object file
+__/src/BVHBuilder/BinaryTree.cpp.o:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unittest.dir/build.make tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o
+.PHONY : __/src/BVHBuilder/BinaryTree.cpp.o
+
+__/src/BVHBuilder/BinaryTree.i: __/src/BVHBuilder/BinaryTree.cpp.i
+.PHONY : __/src/BVHBuilder/BinaryTree.i
+
+# target to preprocess a source file
+__/src/BVHBuilder/BinaryTree.cpp.i:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unittest.dir/build.make tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.i
+.PHONY : __/src/BVHBuilder/BinaryTree.cpp.i
+
+__/src/BVHBuilder/BinaryTree.s: __/src/BVHBuilder/BinaryTree.cpp.s
+.PHONY : __/src/BVHBuilder/BinaryTree.s
+
+# target to generate assembly for a file
+__/src/BVHBuilder/BinaryTree.cpp.s:
+	cd /home/prevost/delivery_tek2/RayTracer/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unittest.dir/build.make tests/CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.s
+.PHONY : __/src/BVHBuilder/BinaryTree.cpp.s
+
 __/src/Camera/Camera.o: __/src/Camera/Camera.cpp.o
 .PHONY : __/src/Camera/Camera.o
 
@@ -454,6 +478,9 @@ help:
 	@echo "... __/src/BVHBuilder/AABB.o"
 	@echo "... __/src/BVHBuilder/AABB.i"
 	@echo "... __/src/BVHBuilder/AABB.s"
+	@echo "... __/src/BVHBuilder/BinaryTree.o"
+	@echo "... __/src/BVHBuilder/BinaryTree.i"
+	@echo "... __/src/BVHBuilder/BinaryTree.s"
 	@echo "... __/src/Camera/Camera.o"
 	@echo "... __/src/Camera/Camera.i"
 	@echo "... __/src/Camera/Camera.s"

@@ -13,6 +13,8 @@
 #include "Parsing_cfg.hpp"
 #include "../DynamicLibrary/DynamicLibrary.hpp"
 #include "LibraryManager.hpp"
+#include "../BVHBuilder/AABB.hpp"
+#include "../BVHBuilder/BinaryTree.hpp"
 
 namespace RayTracer {
 
@@ -36,6 +38,7 @@ namespace RayTracer {
             }
 
             const std::vector<std::unique_ptr<IPrimitive>> &getPrimitives() const { return _primitives; }
+            const std::unique_ptr<Node> &getTree() const { return tree; }
             const std::vector<std::unique_ptr<ILights>> &getLights() const { return _lights; }
             void buildScene(const Parsing_cfg &parsedData, LibraryManager &libraryHandles);
             void clear() {
@@ -59,6 +62,7 @@ namespace RayTracer {
             Color backgroundColor;
             Camera _camera;
             std::vector<std::unique_ptr<IPrimitive>> _primitives;
+            std::unique_ptr<Node> tree;
             std::vector<std::unique_ptr<ILights>> _lights;
             std::map<std::string, Material> materials;
     };

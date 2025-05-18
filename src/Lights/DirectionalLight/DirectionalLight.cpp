@@ -33,7 +33,7 @@ namespace RayTracer {
         Math::Vector3D lightDir = _direction;
 
         Ray ray(info.point, lightDir);
-        auto hits = ray.find_intersection(scene.getPrimitives());
+        auto hits = ray.find_intersection(scene.getPrimitives(), scene.getTree());
         if (hits.size() > 0) {
             Color shadowColor(0, 0, 0);
             return shadowColor;

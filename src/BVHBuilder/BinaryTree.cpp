@@ -82,41 +82,10 @@ namespace RayTracer {
         right = std::make_unique<Node>(std::move(rightList));
     }
 
-    // HitInfo Node::intersects(const Ray &ray) const
-    // {
-    //     HitInfo hitInfo;
-    //     hitInfo.hit = false;
-    //     if (!boundingBox.calculateEntryPoint(ray)) {
-    //         return hitInfo;
-    //     }
-    //     if (isLeaf()) {
-    //         HitInfo closestHit;
-    //         closestHit.hit = false;
-    //         for (const auto& primitive : objects) {
-    //             HitInfo hit = primitive->intersect(ray);
-    //             if (hit.hit && (!closestHit.hit || hit.distance < closestHit.distance)) {
-    //                 closestHit = hit;
-    //             }
-    //         }
-    //         return closestHit;
-    //     }
-    //     HitInfo leftHit = left->intersects(ray);
-    //     HitInfo rightHit = right->intersects(ray);
-    //     if (leftHit.hit && rightHit.hit)
-    //         if (leftHit.distance < rightHit.distance)
-    //             return leftHit;
-    //         else return rightHit;
-    //     else if (leftHit.hit) {
-    //         return leftHit;
-    //     } else
-    //         return rightHit;
-    // }
-
-    HitInfo Node::intersects(const Ray &ray) const
+    std::vector<HitInfo> Node::intersects(const Ray &ray) const
     {
-        HitInfo closestHit;
+        std::vector<HitInfo> closestHit;
         std::stack<const Node *> nodes;
-        closestHit.hit = false;
         nodes.push(this);
         while (!nodes.empty()) {
             const Node *currentNode = nodes.top();
@@ -127,8 +96,8 @@ namespace RayTracer {
             if (currentNode->isLeaf()) {
                 for (const auto& primitive : currentNode->objects) {
                     HitInfo hit = primitive->intersect(ray);
-                    if (hit.hit && (!closestHit.hit || hit.distance < closestHit.distance)) {
-                        closestHit = hit;
+                    if (hit.hit && hit.distance > 1e-6) {
+                        closestHit.push_back(hit);
                     }
                 }
             } else {
@@ -141,16 +110,6 @@ namespace RayTracer {
             }
         }
         return closestHit;
-        // HitInfo leftHit = left->intersects(ray);
-        // HitInfo rightHit = right->intersects(ray);
-        // if (leftHit.hit && rightHit.hit)
-        //     if (leftHit.distance < rightHit.distance)
-        //         return leftHit;
-        //     else return rightHit;
-        // else if (leftHit.hit) {
-        //     return leftHit;
-        // } else
-        //     return rightHit;
     }
 
 }

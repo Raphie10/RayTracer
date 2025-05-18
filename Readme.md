@@ -194,6 +194,17 @@ Le RayTracer offre plusieurs options avancées:
 - Configuration des matériaux (brillance, transparence, réfraction)
 - Possibilité d'ajouter de nouvelles primitives ou sources de lumière via le système de plugins
 - Le déplacement en direct dans la scène pendant son chargement et après
+- Rechargement automatique : Mise à jour en temps réel de la scène lorsque le fichier de configuration (.cfg) est modifié, sans avoir à redémarrer l'application
+
+### Édition en temps réel
+
+Le RayTracer surveille les modifications apportées au fichier de configuration chargé. Lorsque vous modifiez et enregistrez le fichier .cfg pendant l'exécution du programme, la scène est automatiquement rechargée avec les nouveaux paramètres. Cette fonctionnalité est particulièrement utile lors de la création et de l'ajustement de scènes complexes, permettant un workflow créatif beaucoup plus fluide et intuitif.
+
+```bash
+# Lancer le ray tracer et modifier le fichier en temps réel
+./raytracer Config/basic.cfg
+# Modifiez et enregistrez basic.cfg dans votre éditeur pour voir les changements instantanément
+```
 
 ## 🖌️ Textures et Matériaux
 

@@ -41,6 +41,11 @@ namespace RayTracer {
             const Math::Point3D &getCentroid() const {return centroid;}
             const Math::Point3D &getMin() const {return _min;}
             const Math::Point3D &getMax() const {return _max;}
+            bool isNull() const
+            {
+                return (_min.getX() == 0 && _min.getY() == 0 && _min.getZ() == 0 &&
+                        _max.getX() == 0 && _max.getY() == 0 && _max.getZ() == 0);
+            }
         private:
             Math::Point3D _min;
             Math::Point3D _max;

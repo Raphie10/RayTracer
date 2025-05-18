@@ -19,12 +19,13 @@ namespace RayTracer {
 
     class IPrimitive;
     class ILights;
+    class Node;
     class Ray {
         public:
 
             Ray() = default;
             Ray(const Math::Point3D& o, const Math::Vector3D& d) : origin(o), direction(d) {}
-            std::vector<HitInfo> find_intersection(const std::vector<std::unique_ptr<IPrimitive>> &primitives) const;
+            std::vector<HitInfo> find_intersection(const std::vector<std::unique_ptr<IPrimitive>> &primitives, const std::unique_ptr<Node> &tree) const;
             Color trace_ray(const class Scene& scene, int depth);
             Color computeHitColor(HitInfo &info, const class Scene &scene, int depth) const;
             const Math::Point3D getOrigin() const { return origin; }

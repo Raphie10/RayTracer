@@ -139,10 +139,38 @@ src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Ray/Ray.cpp.s:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/directionalLight.dir/__/__/Ray/Ray.cpp.s"
 	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/prevost/delivery_tek2/RayTracer/src/Ray/Ray.cpp -o CMakeFiles/directionalLight.dir/__/__/Ray/Ray.cpp.s
 
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/flags.make
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o"
+	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o -MF CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o.d -o CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp
+
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.i"
+	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp > CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.i
+
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.s"
+	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/BinaryTree.cpp -o CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.s
+
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/flags.make
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/AABB.cpp
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o"
+	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o -MF CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o.d -o CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/AABB.cpp
+
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.i"
+	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/AABB.cpp > CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.i
+
+src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.s"
+	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/prevost/delivery_tek2/RayTracer/src/BVHBuilder/AABB.cpp -o CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.s
+
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/flags.make
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/Builder/RayTracer.cpp
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o"
 	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o -MF CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o.d -o CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/Builder/RayTracer.cpp
 
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.i: cmake_force
@@ -156,7 +184,7 @@ src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTra
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/flags.make
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/Parsing/ArgumentMap.cpp
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o"
 	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o -MF CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o.d -o CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/Parsing/ArgumentMap.cpp
 
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.i: cmake_force
@@ -170,7 +198,7 @@ src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/Argume
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/flags.make
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/Color/Color.cpp
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o"
 	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o -MF CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o.d -o CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/Color/Color.cpp
 
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.i: cmake_force
@@ -184,7 +212,7 @@ src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cp
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/flags.make
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/Materials/Materials.cpp
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.o"
 	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.o -MF CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.o.d -o CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/Materials/Materials.cpp
 
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Materials.cpp.i: cmake_force
@@ -198,7 +226,7 @@ src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Mate
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/flags.make
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o: /home/prevost/delivery_tek2/RayTracer/src/Materials/Texture.cpp
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o"
 	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o -MF CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o.d -o CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o -c /home/prevost/delivery_tek2/RayTracer/src/Materials/Texture.cpp
 
 src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.i: cmake_force
@@ -216,6 +244,8 @@ directionalLight_OBJECTS = \
 "CMakeFiles/directionalLight.dir/__/__/Vectors/Vector.cpp.o" \
 "CMakeFiles/directionalLight.dir/__/__/Points/Points.cpp.o" \
 "CMakeFiles/directionalLight.dir/__/__/Ray/Ray.cpp.o" \
+"CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o" \
+"CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o" \
 "CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o" \
 "CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o" \
 "CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o" \
@@ -230,6 +260,8 @@ directionalLight_EXTERNAL_OBJECTS =
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Vectors/Vector.cpp.o
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Points/Points.cpp.o
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Ray/Ray.cpp.o
+/home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/BinaryTree.cpp.o
+/home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/BVHBuilder/AABB.cpp.o
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Builder/RayTracer.cpp.o
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Parsing/ArgumentMap.cpp.o
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Color/Color.cpp.o
@@ -237,7 +269,7 @@ directionalLight_EXTERNAL_OBJECTS =
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/__/__/Materials/Texture.cpp.o
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/build.make
 /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so: src/Lights/DirectionalLight/CMakeFiles/directionalLight.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/prevost/delivery_tek2/RayTracer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX shared library /home/prevost/delivery_tek2/RayTracer/Plugins/Lights/libDirectionalLight.so"
 	cd /home/prevost/delivery_tek2/RayTracer/build/src/Lights/DirectionalLight && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/directionalLight.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "/home/prevost/delivery_tek2/RayTracer/unittest.pdb"
   "CMakeFiles/unittest.dir/__/src/BVHBuilder/AABB.cpp.o"
   "CMakeFiles/unittest.dir/__/src/BVHBuilder/AABB.cpp.o.d"
+  "CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o"
+  "CMakeFiles/unittest.dir/__/src/BVHBuilder/BinaryTree.cpp.o.d"
   "CMakeFiles/unittest.dir/__/src/Camera/Camera.cpp.o"
   "CMakeFiles/unittest.dir/__/src/Camera/Camera.cpp.o.d"
   "CMakeFiles/unittest.dir/__/src/Color/Color.cpp.o"

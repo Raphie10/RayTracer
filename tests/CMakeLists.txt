@@ -30,6 +30,7 @@ set(TEST_SRC_FILES
     ${CMAKE_SOURCE_DIR}/src/Parsing/ArgumentMap.cpp
     ${CMAKE_SOURCE_DIR}/src/Camera/Camera.cpp
     ${CMAKE_SOURCE_DIR}/src/Ray/Ray.cpp
+    ${CMAKE_SOURCE_DIR}/src/BVHBuilder/BinaryTree.cpp
     ${CMAKE_SOURCE_DIR}/src/Materials/Texture.cpp
 )
 
