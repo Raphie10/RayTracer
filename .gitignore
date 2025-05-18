@@ -3,7 +3,7 @@
 raytracer
 *.o
 *.so
-build/
+build
 gmon.out
 analysis.txt
 unit_tests
