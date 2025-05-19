@@ -33,8 +33,8 @@ namespace RayTracer {
             Color getPixel(int x, int y) const;
             void setPixel(int x, int y, const Color& color);
             void setPixel(int n, const Color& color);
-            int getPixelWidth() const { return pixelWidth; }
-            int getPixelHeight() const { return pixelHeight; }
+            double getPixelWidth() const { return pixelWidth; }
+            double getPixelHeight() const { return pixelHeight; }
             void getUV(int x, int y, double& u, double& v) const;
             bool saveToPPM(const std::string& filename) const;
             const std::vector<bool> &getCompletedLines() const {return completedLines;}

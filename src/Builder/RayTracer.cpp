@@ -19,7 +19,7 @@ namespace RayTracer {
 
     RayCaster::RayCaster(ArgumentMap resolution, Parsing_cfg &parsedData) :
         _screen(resolution),
-        maxDepth(5), samplesPerPixel(1), renderingActive(false), currentLine(0)
+        maxDepth(5), samplesPerPixel(1), blur(1), renderingActive(false), currentLine(0)
     {
         if (parsedData.getCamInfo()["samplesPerPixel"].exists<int>()) {
             samplesPerPixel = parsedData.getCamInfo()["samplesPerPixel"].as<int>();
@@ -27,11 +27,17 @@ namespace RayTracer {
         if (parsedData.getCamInfo()["maxDepth"].exists<int>()) {
             maxDepth = parsedData.getCamInfo()["maxDepth"].as<int>();
         }
+        if (parsedData.getCamInfo()["blur"].exists<int>()) {
+            blur = parsedData.getCamInfo()["blur"].as<int>();
+        }
         if (samplesPerPixel < 1) {
             throw RayTracerError("Invalid number of samples per pixel");
         }
         if (maxDepth < 1) {
             throw RayTracerError("Invalid maximum depth");
+        }
+        if (blur < 1) {
+            throw RayTracerError("Invalid blur value");
         }
     }
 
@@ -80,8 +86,8 @@ namespace RayTracer {
             double jitteru = u;
             double jitterv = v;
             if (samplesPerPixel > 1) {
-                jitteru += du * (rand() / static_cast<double>(RAND_MAX) - 0.5);
-                jitterv += dv * (rand() / static_cast<double>(RAND_MAX) - 0.5);
+                jitteru += du * (rand() / static_cast<double>(RAND_MAX) - 0.5) * blur;
+                jitterv += dv * (rand() / static_cast<double>(RAND_MAX) - 0.5) * blur;
             }
             Ray ray = scene->getCamera().generate_ray(jitteru, jitterv);
             color += ray.trace_ray(scene, maxDepth);
@@ -90,9 +96,9 @@ namespace RayTracer {
             color = color / static_cast<double>(samplesPerPixel);
         }
         color = Color(
-            sqrt(color.R),
-            sqrt(color.G),
-            sqrt(color.B)
+            sqrt(color.getR()),
+            sqrt(color.getG()),
+            sqrt(color.getB())
         );
         return color;
     }

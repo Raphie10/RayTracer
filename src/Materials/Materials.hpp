@@ -33,6 +33,22 @@ namespace RayTracer {
                     return _color;
                 }
             }
+            Texture getTexture() const { return texture; }
+            bool isTransparent() const { return opacity < 1.0f; }
+            Color getColor() const { return _color; }
+            std::unordered_map<std::string, Material> &getMaterialList() { return textureList; }
+            double getOpacity() const { return opacity; }
+            double getReflectivity() const { return reflectivity; }
+            double getTextureScale() const { return textureScale; }
+            double getShininess() const { return shininess; }
+            void setColor(const Color &color) { _color = color; }
+            void setOpacity(double opacity) { this->opacity = opacity; }
+            void setReflectivity(double reflectivity) { this->reflectivity = reflectivity; }
+            void setTextureScale(double scale) { this->textureScale = scale; }
+            void setTexture(const Texture &texture) { this->texture = texture; }
+            void setShininess(double shininess) { this->shininess = shininess; }
+            void setName(const std::string &name) { _name = name; }
+        private:
             std::string _name = "material";
             Color _color = Color(1, 1, 1);
             double opacity = 1.0;
@@ -41,7 +57,5 @@ namespace RayTracer {
             std::unordered_map<std::string, Material> textureList;
             double textureScale;
             double shininess = 10.0;
-            Texture getTexture() const { return texture; }
-            bool isTransparent() const { return opacity < 1.0f; }
     };
 }

@@ -28,7 +28,7 @@ namespace RayTracer {
         if (map["material"].exists<std::reference_wrapper<RayTracer::Material>>())
             material = map["material"].as<std::reference_wrapper<RayTracer::Material>>();
         if (map["color"].exists<Color>())
-            material._color = map["color"].as<Color>();
+            material.setColor(map["color"].as<Color>());
     }
 
     Plane::Plane(const std::vector<double>& params) {
@@ -43,7 +43,7 @@ namespace RayTracer {
 
     HitInfo Plane::intersect(const Ray& ray) const {
         HitInfo info;
-        info.hit = false;
+        info.setHit(false);
         double normalComponent = 0;
         Math::Vector3D normal;
         Math::Vector3D uAxis;
@@ -87,26 +87,26 @@ namespace RayTracer {
         }
         if (d < 0)
             return info;
-        info.hit = true;
-        info.originDirection = ray.getDirection() * -1;
-        info.distance = d;
-        info.point = ray.getOrigin() + ray.getDirection() * d;
+        info.setHit(true);
+        info.setOriginDirection(ray.getDirection() * -1);
+        info.setDistance(d);
+        info.setPoint(ray.getOrigin() + ray.getDirection() * d);
         Math::Point3D planePoint;
         switch (axis) {
             case Axis::X: planePoint = Math::Point3D(position, 0, 0); break;
             case Axis::Y: planePoint = Math::Point3D(0, position, 0); break;
             case Axis::Z: planePoint = Math::Point3D(0, 0, position); break;
         }
-        Math::Vector3D local = info.point - planePoint;
-        double u = local.dot(uAxis) * material.textureScale;
-        double v = local.dot(vAxis) * material.textureScale;
+        Math::Vector3D local = info.getPoint() - planePoint;
+        double u = local.dot(uAxis) * material.getTextureScale();
+        double v = local.dot(vAxis) * material.getTextureScale();
 
         if (ray.getDirection().dot(normal) > 0)
-            info.normal = normal * -1;
+            info.setNormal(normal * -1);
         else
-            info.normal = normal;
-        info.color = material.getColor(u, v);
-        info.material = material;
+            info.setNormal( normal);
+        info.setColor(material.getColor(u, v));
+        info.setMaterial(material);
         return info;
     }
 

@@ -55,7 +55,7 @@ namespace RayTracer
         if (params["material"].exists<std::reference_wrapper<RayTracer::Material>>())
             material = params["material"].as<std::reference_wrapper<RayTracer::Material>>();
         if (params["color"].exists<Color>()) {
-            material._color = params["color"].as<Color>();
+            material.setColor(params["color"].as<Color>());
         }
         edge1 = vertex2 - vertex1;
         edge2 = vertex3 - vertex1;
@@ -69,7 +69,7 @@ namespace RayTracer
     HitInfo Triangle::intersect(const Ray& ray) const
     {
         HitInfo info;
-        info.hit = false;
+        info.setHit(false);
 
         Math::Vector3D P = ray.getDirection().cross(edge2);
         auto det = edge1.dot(P);
@@ -90,16 +90,16 @@ namespace RayTracer
         double hitDistance = f * (edge2.dot(Q));
         if (hitDistance < 1e-8f)
             return info;
-        info.hit = true;
-        info.originDirection = ray.getDirection() * -1;
-        info.distance = hitDistance;
-        info.normal = normal;
-        info.point = ray.getOrigin() + ray.getDirection() * hitDistance;
+        info.setHit(true);
+        info.setOriginDirection(ray.getDirection() * -1);
+        info.setDistance(hitDistance);
+        info.setNormal(normal);
+        info.setPoint(ray.getOrigin() + ray.getDirection() * hitDistance);
         double w = 1.0 - u - v;
         double texU = textPoint1.getX() * w + textPoint2.getX() * u + textPoint3.getX() * v;
         double texV = textPoint1.getY() * w + textPoint2.getY() * u + textPoint3.getY() * v;
-        info.color = material.getColor(texU, texV);
-        info.material = material;
+        info.setColor(material.getColor(texU, texV));
+        info.setMaterial(material);
         return info;
     }
 

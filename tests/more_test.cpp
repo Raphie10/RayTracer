@@ -70,11 +70,11 @@ Test(aabb, intersect)
 
     RayTracer::Ray ray1(Math::Point3D(0.0, 0.0, -2.0), Math::Vector3D(0.0, 0.0, 1.0));
     RayTracer::HitInfo hitInfo1 = box.getHitInfo(ray1, test);
-    cr_assert(hitInfo1.hit, "Ray should intersect the AABB");
+    cr_assert(hitInfo1.isHit(), "Ray should intersect the AABB");
 
     RayTracer::Ray ray2(Math::Point3D(2.0, 2.0, 2.0), Math::Vector3D(1.0, 1.0, 1.0));
     RayTracer::HitInfo hitInfo2 = box.getHitInfo(ray2, test);
-    cr_assert_not(hitInfo2.hit, "Ray should not intersect the AABB");
+    cr_assert_not(hitInfo2.isHit(), "Ray should not intersect the AABB");
 }
 
 Test(argument_map, constructor)
@@ -113,17 +113,17 @@ Test(screen, set_get_pixel)
     screen.setPixel(5, 5, color);
     RayTracer::Color retrieved = screen.getPixel(5, 5);
 
-    cr_assert_float_eq(retrieved.R, 0.5, 1e-6, "Retrieved color R should be 0.5");
-    cr_assert_float_eq(retrieved.G, 0.6, 1e-6, "Retrieved color G should be 0.6");
-    cr_assert_float_eq(retrieved.B, 0.7, 1e-6, "Retrieved color B should be 0.7");
+    cr_assert_float_eq(retrieved.getR(), 0.5, 1e-6, "Retrieved color R should be 0.5");
+    cr_assert_float_eq(retrieved.getG(), 0.6, 1e-6, "Retrieved color G should be 0.6");
+    cr_assert_float_eq(retrieved.getB(), 0.7, 1e-6, "Retrieved color B should be 0.7");
 
     RayTracer::Color color2(0.8, 0.9, 1.0);
     screen.setPixel(0, color2);
     RayTracer::Color retrieved2 = screen.getPixel(0, 0);
 
-    cr_assert_float_eq(retrieved2.R, 0.8, 1e-6, "Retrieved color R should be 0.8");
-    cr_assert_float_eq(retrieved2.G, 0.9, 1e-6, "Retrieved color G should be 0.9");
-    cr_assert_float_eq(retrieved2.B, 1.0, 1e-6, "Retrieved color B should be 1.0");
+    cr_assert_float_eq(retrieved2.getR(), 0.8, 1e-6, "Retrieved color R should be 0.8");
+    cr_assert_float_eq(retrieved2.getG(), 0.9, 1e-6, "Retrieved color G should be 0.9");
+    cr_assert_float_eq(retrieved2.getB(), 1.0, 1e-6, "Retrieved color B should be 1.0");
 }
 
 // Tests pour Camera

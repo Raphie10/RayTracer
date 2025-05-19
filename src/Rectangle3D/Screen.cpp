@@ -36,9 +36,9 @@ namespace RayTracer {
     {
         if (x < 0 || x >= width || y < 0 || y >= height)
             return;
-        double r = std::max(0.0, std::min(1.0, color.R));
-        double g = std::max(0.0, std::min(1.0, color.G));
-        double b = std::max(0.0, std::min(1.0, color.B));
+        double r = std::max(0.0, std::min(1.0, color.getR()));
+        double g = std::max(0.0, std::min(1.0, color.getG()));
+        double b = std::max(0.0, std::min(1.0, color.getB()));
         pixels[y * width + x] = Color(r, g, b);
     }
 
@@ -46,9 +46,9 @@ namespace RayTracer {
     {
         if (n < 0 || n >= height * width)
             return;
-        double r = std::max(0.0, std::min(1.0, color.R));
-        double g = std::max(0.0, std::min(1.0, color.G));
-        double b = std::max(0.0, std::min(1.0, color.B));
+        double r = std::max(0.0, std::min(1.0, color.getR()));
+        double g = std::max(0.0, std::min(1.0, color.getG()));
+        double b = std::max(0.0, std::min(1.0, color.getB()));
         pixels[n] = Color(r, g, b);
     }
 
@@ -69,9 +69,9 @@ namespace RayTracer {
         for (int y = 0; y < height; ++y) {
             for (int x = 0; x < width; ++x) {
                 Color color = getPixel(x, y);
-                int r = static_cast<int>(color.R * 255.999);
-                int g = static_cast<int>(color.G * 255.999);
-                int b = static_cast<int>(color.B * 255.999);
+                int r = static_cast<int>(color.getR() * 255.999);
+                int g = static_cast<int>(color.getG() * 255.999);
+                int b = static_cast<int>(color.getB() * 255.999);
                 file << r << " " << g << " " << b << "\n";
             }
         }

@@ -26,7 +26,11 @@ namespace RayTracer {
             Color& operator*=(double scalar);
             Color operator/(double scalar) const;
             Color& operator/=(double scalar);
-
+            double getR() const { return R; }
+            double getG() const { return G; }
+            double getB() const { return B; }
+            double getA() const { return A; }
+        private:
             double R;
             double G;
             double B;

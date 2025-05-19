@@ -141,9 +141,9 @@ namespace RayTracer {
                     Color color = screen.getPixel(x, y);
                     // couleur de [0,1] à [0,255]
                     sf::Color pixelColor(
-                        static_cast<sf::Uint8>(std::min(255.0, color.R * 255)),
-                        static_cast<sf::Uint8>(std::min(255.0, color.G * 255)),
-                        static_cast<sf::Uint8>(std::min(255.0, color.B * 255))
+                        static_cast<sf::Uint8>(std::min(255.0, color.getR() * 255)),
+                        static_cast<sf::Uint8>(std::min(255.0, color.getG() * 255)),
+                        static_cast<sf::Uint8>(std::min(255.0, color.getB() * 255))
                     );
                     displayImage.setPixel(x, y, pixelColor);
                 }

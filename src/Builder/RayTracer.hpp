@@ -31,6 +31,7 @@ class RenderWorkerPool;
             Screen _screen;
             int maxDepth;
             int samplesPerPixel;
+            int blur;
             std::unique_ptr<RenderWorkerPool> _renderWorkerPool;
             std::mutex screenMutex;
             std::atomic<bool> renderingActive;

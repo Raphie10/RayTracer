@@ -34,7 +34,7 @@ namespace RayTracer {
         if (params["material"].exists<std::reference_wrapper<RayTracer::Material>>())
             material = params["material"].as<std::reference_wrapper<RayTracer::Material>>();
         if (params["color"].exists<Color>())
-            material._color = params["color"].as<Color>();
+            material.setColor(params["color"].as<Color>());
     }
 
     bool intersectCap(const Ray &ray,
@@ -47,31 +47,37 @@ namespace RayTracer {
     {
         Math::Vector3D oc = ray.getOrigin() - center;
         double denom = ray.getDirection().dot(normal);
-        if (std::abs(denom) < 1e-8)
+        
+        if (std::abs(denom) < 1e-6)
             return false;
 
         double t = -oc.dot(normal) / denom;
-        if (t < 0)
+        if (t < 1e-6)
             return false;
 
         Math::Point3D hitPoint = ray.getOrigin() + ray.getDirection() * t;
         Math::Vector3D offset = hitPoint - center;
-
-        double dist2 = offset.dot(offset) - std::pow(offset.dot(normal), 2);
+        Math::Vector3D projectedOffset = offset - normal * offset.dot(normal);
+        double dist2 = projectedOffset.dot(projectedOffset);
+        
         if (dist2 > radius * radius)
             return false;
 
-        info.hit = true;
-        info.distance = t;
-        info.point = hitPoint;
-        info.normal = normal;
-        info.material = material;
-
-        Math::Vector3D p = hitPoint - center;
-        double u = 0.5 + p.getX() / (2 * radius);
-        double v = 0.5 + p.getZ() / (2 * radius);
-
-        info.color = material.getColor(u, v, faceName);
+        info.setHit(true);
+        info.setDistance(t);
+        info.setPoint(hitPoint);
+        info.setNormal(normal);
+        info.setMaterial(material);
+        info.setOriginDirection(ray.getDirection() * -1);
+        Math::Vector3D u_axis, v_axis;
+        if (std::abs(normal.getX()) < std::abs(normal.getY()))
+            u_axis = Math::Vector3D(0, normal.getZ(), -normal.getY()).normalize();
+        else
+            u_axis = Math::Vector3D(normal.getZ(), 0, -normal.getX()).normalize();
+        v_axis = normal.cross(u_axis);
+        double u = 0.5 + (offset.dot(u_axis) / (2.0 * radius));
+        double v = 0.5 + (offset.dot(v_axis) / (2.0 * radius));
+        info.setColor(material.getColor(u, v, faceName));
         return true;
     }
 
@@ -79,7 +85,7 @@ namespace RayTracer {
     HitInfo Cylinder::intersect(const Ray& ray) const
     {
         HitInfo info;
-        info.hit = false;
+        info.setHit(false);
         const Math::Vector3D cylinderAxis = direction;
         Math::Vector3D oc = ray.getOrigin() - position;
         double a = ray.getDirection().dot(ray.getDirection()) - std::pow(ray.getDirection().dot(cylinderAxis), 2);
@@ -106,22 +112,22 @@ namespace RayTracer {
                 return info;
             return info;
         }
-        info.hit = true;
-        info.originDirection = ray.getDirection() * -1;
-        info.distance = t;
-        info.material = material;
-        info.point = intersectionPoint;
+        info.setHit(true);
+        info.setOriginDirection(ray.getDirection() * -1);
+        info.setDistance(t);
+        info.setMaterial(material);
+        info.setPoint(intersectionPoint);
         Math::Vector3D projectionOnAxisVector = cylinderAxis * projectionOnAxis;
         Math::Vector3D centerToIntersect = intersectionPoint - (position + projectionOnAxisVector);
-        Math::Vector3D hitVec = info.point - position;
+        Math::Vector3D hitVec = info.getPoint() - position;
         double heightOnAxis = hitVec.dot(direction);
         double v = heightOnAxis / height;
 
         Math::Vector3D radial = hitVec - direction * heightOnAxis;
         double theta = atan2(radial.getZ(), radial.getX());
         double u = (theta + M_PI) / (2 * M_PI);
-        info.normal = centerToIntersect.normalize();
-        info.color = material.getColor(u, v);
+        info.setNormal(centerToIntersect.normalize());
+        info.setColor(material.getColor(u, v));
         return info;
     }
 

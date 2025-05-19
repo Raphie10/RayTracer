@@ -35,7 +35,7 @@ namespace RayTracer {
         if (params["material"].exists<std::reference_wrapper<RayTracer::Material>>())
             material = params["material"].as<std::reference_wrapper<RayTracer::Material>>();
         if (params["color"].exists<Color>())
-            material._color = params["color"].as<Color>();
+            material.setColor(params["color"].as<Color>());
         ArgumentMap directionMap = params["direction"].as<ArgumentMap>();
         direction = Math::Vector3D(directionMap["x"].as<double>(), directionMap["y"].as<double>(), directionMap["z"].as<double>());
     }
@@ -43,7 +43,7 @@ namespace RayTracer {
     HitInfo Donut::intersect(const Ray& ray) const
     {
         HitInfo info;
-        info.hit = false;
+        info.setHit(false);
 
         // Ray localRay = ;
         Math::Point3D newOrigin(
@@ -151,9 +151,9 @@ namespace RayTracer {
 
         if (std::abs(diff) > 5e-3)
             return info;
-        info.hit = true;
-        info.distance = t;
-        info.point = ray.getOrigin() + ray.getDirection() * t;
+        info.setHit(true);
+        info.setDistance(t);
+        info.setPoint(ray.getOrigin() + ray.getDirection() * t);
         Math::Point3D localHitPoint = hitPoint;
         double distToRing = std::sqrt(localHitPoint.getX()*localHitPoint.getX() + localHitPoint.getZ()*localHitPoint.getZ());
         Math::Vector3D ringToHit;
@@ -193,10 +193,10 @@ namespace RayTracer {
 
         double phi = atan2(dy, std::sqrt(dx * dx + dz * dz));
         double v = (phi + M_PI / 2) / M_PI;
-        info.normal = globalNormal.normalize();
-        info.color = material.getColor(u, v);
-        info.material = material;
-        info.originDirection = ray.getDirection() * -1;
+        info.setNormal(globalNormal.normalize());
+        info.setColor(material.getColor(u, v));
+        info.setMaterial(material);
+        info.setOriginDirection(ray.getDirection() * -1);
         return info;
     }
 

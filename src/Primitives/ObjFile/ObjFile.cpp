@@ -20,7 +20,7 @@ namespace RayTracer {
         if (params["material"].exists<std::reference_wrapper<RayTracer::Material>>())
             material = params["material"].as<std::reference_wrapper<RayTracer::Material>>();
         if (params["color"].exists<Color>())
-            material._color = params["color"].as<Color>();
+            material.setColor(params["color"].as<Color>());
         _position = params["position"].as<Math::Point3D>();
         auto res =  generateTriangles();
         tree = std::make_unique<Node>(std::move(res));
@@ -82,12 +82,12 @@ namespace RayTracer {
                 params["textureV3"] = textureParam3;
             }
             const auto& matName = indices.getMaterialName();
-            if (material.textureList.find(matName) != material.textureList.end()) {
-                params["material"] = std::ref(material.textureList[matName]);
+            if (material.getMaterialList().find(matName) != material.getMaterialList().end()) {
+                params["material"] = std::ref(material.getMaterialList()[matName]);
             } else {
                 params["material"] = std::ref(material);
             }
-            params["color"] = material._color;
+            params["color"] = material.getColor();
             triangles.push_back(constructor(params));
         }
         return triangles;
@@ -108,32 +108,32 @@ namespace RayTracer {
                 std::stringstream bufferStream(buffer.substr(7));
                 bufferStream >> currentMaterial;
                 Material newMaterial;
-                newMaterial._name = currentMaterial;
-                material.textureList[currentMaterial] = newMaterial;
+                newMaterial.setName(currentMaterial);
+                material.getMaterialList()[currentMaterial] = newMaterial;
             }
             if (buffer.rfind("Kd ", 0) == 0) {
                 std::stringstream bufferStream(buffer.substr(3));
                 double r, g, b;
                 bufferStream >> r >> g >> b;
-                material._color = Color(r, g, b);
+                material.setColor(Color(r, g, b));
             }
             if (buffer.rfind("d ", 0) == 0) {
                 std::stringstream ss(buffer.substr(2));
                 double opacity;
                 ss >> opacity;
-                material.textureList[currentMaterial].opacity = opacity;
+                material.getMaterialList()[currentMaterial].setOpacity(opacity);
             }
             if (buffer.rfind("Tr ", 0) == 0) {
                 std::stringstream ss(buffer.substr(3));
                 double transparency;
                 ss >> transparency;
-                material.textureList[currentMaterial].opacity = 1.0 - transparency;
+                material.getMaterialList()[currentMaterial].setOpacity(1.0 - transparency);
             }
             if (buffer.rfind("Ns ", 0) == 0) {
                 std::stringstream ss(buffer.substr(3));
                 double shininess;
                 ss >> shininess;
-                material.textureList[currentMaterial].shininess = shininess;
+                material.getMaterialList()[currentMaterial].setShininess(shininess);
             }
             if (buffer.rfind("map_Kd ", 0) == 0) {
                 std::stringstream bufferStream(buffer.substr(7));
@@ -148,7 +148,7 @@ namespace RayTracer {
                 }
 
                 std::string mtlFullPath = objDir + textureName;
-                material.textureList[currentMaterial].texture = Texture(mtlFullPath);
+                material.getMaterialList()[currentMaterial].setTexture(Texture(mtlFullPath));
             }
         }
     }
@@ -242,9 +242,9 @@ namespace RayTracer {
         HitInfo closestHit;
 
         for (const auto& hit : hits) {
-            if (hit.distance >= 0.0 && hit.distance < minDistance) {
+            if (hit.getDistance() >= 0.0 && hit.getDistance() < minDistance) {
                 closestHit = hit;
-                minDistance = hit.distance;
+                minDistance = hit.getDistance();
             }
         }
         return closestHit;

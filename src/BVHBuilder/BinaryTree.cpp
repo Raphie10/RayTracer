@@ -96,7 +96,7 @@ namespace RayTracer {
             if (currentNode->isLeaf()) {
                 for (const auto& primitive : currentNode->objects) {
                     HitInfo hit = primitive->intersect(ray);
-                    if (hit.hit && hit.distance > 1e-6) {
+                    if (hit.isHit() && hit.getDistance() > 1e-6) {
                         closestHit.push_back(hit);
                     }
                 }

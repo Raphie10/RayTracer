@@ -32,13 +32,13 @@ namespace RayTracer {
         if (params["material"].exists<std::reference_wrapper<RayTracer::Material>>())
             material = params["material"].as<std::reference_wrapper<RayTracer::Material>>();
         if (params["color"].exists<Color>())
-            material._color = params["color"].as<Color>();
+            material.setColor(params["color"].as<Color>());
     }
 
     HitInfo Cone::intersect(const Ray& ray) const
     {
         HitInfo info;
-        info.hit = false;
+        info.setHit(false);
         Math::Vector3D axis = direction.normalize();
         Math::Vector3D oc = ray.getOrigin() - position;
         double tanTheta = radius / height;
@@ -84,33 +84,33 @@ namespace RayTracer {
         if (!hitSide && !hitBase)
             return info;
         if (hitSide && (!hitBase || tSide <= tBase)) {
-            info.hit = true;
-            info.distance = tSide;
-            info.originDirection = ray.getDirection() * -1;
-            info.point = ray.getOrigin() + ray.getDirection() * tSide;
-            Math::Vector3D ap = info.point - position;
+            info.setHit(true);
+            info.setDistance(tSide);
+            info.setOriginDirection(ray.getDirection() * -1);
+            info.setPoint(ray.getOrigin() + ray.getDirection() * tSide);
+            Math::Vector3D ap = info.getPoint() - position;
             double heightOnCone = ap.dot(axis);
-            Math::Vector3D s = info.point - (position + axis * heightOnCone);
-            info.normal = (s - axis * s.dot(axis) / axis.dot(axis)).normalize();
+            Math::Vector3D s = info.getPoint() - (position + axis * heightOnCone);
+            info.setNormal((s - axis * s.dot(axis) / axis.dot(axis)).normalize());
             double v = heightOnCone / height;
-            Math::Vector3D hitVec = info.point - position;
+            Math::Vector3D hitVec = info.getPoint() - position;
             Math::Vector3D radial = hitVec - axis * heightOnCone;
             double theta = atan2(radial.getZ(), radial.getX());
             double u = (theta + M_PI) / (2 * M_PI);
             material.getColor(u, v);
         } else {
-            info.hit = true;
-            info.originDirection = ray.getDirection() * -1;
-            info.distance = tBase;
-            info.point = ray.getOrigin() + ray.getDirection() * tBase;
-            info.normal = baseNormal;
-            Math::Vector3D local = info.point - baseCenter;
+            info.setHit(true);
+            info.setOriginDirection(ray.getDirection() * -1);
+            info.setDistance(tBase);
+            info.setPoint(ray.getOrigin() + ray.getDirection() * tBase);
+            info.setNormal(baseNormal);
+            Math::Vector3D local = info.getPoint() - baseCenter;
             double u = 0.5 + local.getX() / (2.0 * radius);
             double v = 0.5 + local.getZ() / (2.0 * radius);
-            info.color = material.getColor(u, v, "bottom");
+            info.setColor(material.getColor(u, v, "bottom"));
         }
-        info.color = material._color;
-        info.material = material;
+        info.setColor(material.getColor());
+        info.setMaterial(material);
         return info;
     }
 

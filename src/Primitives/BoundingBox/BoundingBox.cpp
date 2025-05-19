@@ -33,7 +33,7 @@ namespace RayTracer
         if (params["material"].exists<std::reference_wrapper<RayTracer::Material>>())
         material = params["material"].as<std::reference_wrapper<RayTracer::Material>>();
         if (params["color"].exists<Color>())
-            material._color = params["color"].as<Color>();
+            material.setColor(params["color"].as<Color>());
     }
 
     BoundingBox::~BoundingBox()

@@ -47,7 +47,6 @@ namespace RayTracer {
                     params["material"] = std::ref(this->materials[materialName]);
                 }
                 primitives.push_back(constructor(params));
-                // addPrimitive(constructor(params));
             }
         }
         std::vector<std::unique_ptr<IPrimitive>> treePrimitives;

@@ -21,7 +21,7 @@ namespace RayTracer {
         if (params["material"].exists<std::reference_wrapper<RayTracer::Material>>())
             material = params["material"].as<std::reference_wrapper<RayTracer::Material>>();
         if (params["color"].exists<Color>()) {
-            material._color = params["color"].as<Color>();
+            material.setColor(params["color"].as<Color>());
         }
 
     }
@@ -29,7 +29,7 @@ namespace RayTracer {
     HitInfo Sphere::intersect(const Ray& ray) const
     {
         HitInfo info;
-        info.hit = false;
+        info.setHit(false);
         Math::Vector3D oc = ray.getOrigin() - center;
         double a = ray.getDirection().dot(ray.getDirection());
         double b = 2.0 * oc.dot(ray.getDirection());
@@ -46,16 +46,16 @@ namespace RayTracer {
         if (t < 0)
             return info;
         double u, v;
-        info.hit = true;
-        info.originDirection = ray.getDirection() * -1;
-        info.distance = t;
-        info.point = ray.getOrigin() + ray.getDirection() * t;
-        info.normal = (info.point - center).normalize();
-        Math::Vector3D p = (info.point - center).normalize();
+        info.setHit(true);
+        info.setOriginDirection(ray.getDirection() * -1);
+        info.setDistance(t);
+        info.setPoint(ray.getOrigin() + ray.getDirection() * t);
+        info.setNormal((info.getPoint() - center).normalize());
+        Math::Vector3D p = (info.getPoint() - center).normalize();
         u = 0.5f - atan2(p.getZ(), p.getX()) / (2 * M_PI);
         v = 0.5f + asin(p.getY()) / M_PI;
-        info.color = material.getColor(u, v);
-        info.material = material;
+        info.setColor(material.getColor(u, v));
+        info.setMaterial(material);
         return info;
     }
 

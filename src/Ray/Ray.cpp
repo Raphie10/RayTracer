@@ -17,18 +17,18 @@ namespace RayTracer
     Color Ray::computeHitColor(HitInfo &info, const std::shared_ptr<Scene> &scene, int depth) const
     {
         // float diffusionLight = 0.1;
-        Color color = (info.color * scene->getAmbientLight());
+        Color color = (info.getColor() * scene->getAmbientLight());
         for (const auto &light : scene->getLights()) {
             Color lightColor = light->computeLightingColor(info, *scene);
             color += lightColor;
         }
-        if (info.material.reflectivity > 0 && depth > 1) {
+        if (info.getMaterial().getReflectivity() > 0 && depth > 1) {
             Math::Vector3D dir = direction.normalize();
-            Math::Vector3D reflectDir = dir - info.normal * 2 * dir.dot(info.normal);
+            Math::Vector3D reflectDir = dir - info.getNormal() * 2 * dir.dot(info.getNormal());
             reflectDir = reflectDir.normalize();
-            Ray reflectRay(info.point + info.normal * 0.001, reflectDir);
+            Ray reflectRay(info.getPoint() + info.getNormal() * 0.001, reflectDir);
             Color reflectColor = reflectRay.trace_ray(scene, depth - 1);
-            color = color * (1 - info.material.reflectivity) + reflectColor * info.material.reflectivity;
+            color = color * (1 - info.getMaterial().getReflectivity()) + reflectColor * info.getMaterial().getReflectivity();
         }
         return color;
     }
@@ -37,7 +37,7 @@ namespace RayTracer
         std::vector<HitInfo> hits;
         for (const auto& element : primitives) {
             HitInfo hitInfo = element->intersect(*this);
-            if (hitInfo.hit && hitInfo.distance > 1e-6) {
+            if (hitInfo.isHit() && hitInfo.getDistance() > 1e-6) {
                 hits.push_back(hitInfo);
             }
         }
@@ -45,7 +45,7 @@ namespace RayTracer
         hits.insert(hits.end(), treeIntersect.begin(), treeIntersect.end());
 
         std::sort(hits.begin(), hits.end(), [](const HitInfo& a, const HitInfo& b) {
-            return a.distance < b.distance;
+            return a.getDistance() < b.getDistance();
         });
         return hits;
     }
@@ -62,8 +62,8 @@ namespace RayTracer
         Color color(0, 0, 0);
         for (auto& hit : hits) {
             Color hitColor = computeHitColor(hit, scene, depth);
-            color += hitColor * std::min(hit.material.opacity, (1.0 - curOpacity));
-            curOpacity += hit.material.opacity;
+            color += hitColor * std::min(hit.getMaterial().getOpacity(), (1.0 - curOpacity));
+            curOpacity += hit.getMaterial().getOpacity();
             if (curOpacity >= 1.0) {
                 break;
             }

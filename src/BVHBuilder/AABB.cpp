@@ -81,11 +81,11 @@ namespace RayTracer {
             else
                 normal.setZ(-1.0);
         }
-        hitInfo.normal = normal;
-        hitInfo.hit = true;
-        hitInfo.distance = entryPoint;
-        hitInfo.originDirection = ray.getDirection() * -1;
-        hitInfo.point = ray.getOrigin() + ray.getDirection() * entryPoint;
+        hitInfo.setNormal(normal);
+        hitInfo.setHit(true);
+        hitInfo.setDistance(entryPoint);
+        hitInfo.setOriginDirection(ray.getDirection() * -1);
+        hitInfo.setPoint(ray.getOrigin() + ray.getDirection() * entryPoint);
         double u = 0.0, v = 0.0;
         std::string faceId;
 
@@ -94,22 +94,22 @@ namespace RayTracer {
                 faceId = "-X";
             else
                 faceId = "+X";
-            u = (hitInfo.point.getZ() - _min.getZ()) / (_max.getZ() - _min.getZ());
-            v = (hitInfo.point.getY() - _min.getY()) / (_max.getY() - _min.getY());
+            u = (hitInfo.getPoint().getZ() - _min.getZ()) / (_max.getZ() - _min.getZ());
+            v = (hitInfo.getPoint().getY() - _min.getY()) / (_max.getY() - _min.getY());
         } else if (entryPoint == tminY) {
             if (ray.getDirection().getY() < 0)
                 faceId = "-Y";
             else
                 faceId = "+Y";
-            u = (hitInfo.point.getX() - _min.getX()) / (_max.getX() - _min.getX());
-            v = (hitInfo.point.getZ() - _min.getZ()) / (_max.getZ() - _min.getZ());
+            u = (hitInfo.getPoint().getX() - _min.getX()) / (_max.getX() - _min.getX());
+            v = (hitInfo.getPoint().getZ() - _min.getZ()) / (_max.getZ() - _min.getZ());
         } else if (entryPoint == tminZ) {
             if (ray.getDirection().getZ() < 0)
                 faceId = "-Z";
             else
                 faceId = "+Z";
-            u = (hitInfo.point.getX() - _min.getX()) / (_max.getX() - _min.getX());
-            v = (hitInfo.point.getY() - _min.getY()) / (_max.getY() - _min.getY());
+            u = (hitInfo.getPoint().getX() - _min.getX()) / (_max.getX() - _min.getX());
+            v = (hitInfo.getPoint().getY() - _min.getY()) / (_max.getY() - _min.getY());
         }
         material.getColor(u, v, faceId);
         // const auto& texIt = material.textureList.find(faceId);
