@@ -45,13 +45,11 @@ namespace RayTracer {
         HitInfo info;
         info.setHit(false);
 
-        // Ray localRay = ;
         Math::Point3D newOrigin(
             ray.getOrigin().getX() - center.getX(),
             ray.getOrigin().getY() - center.getY(),
             ray.getOrigin().getZ() - center.getZ()
         );
-        // localRay.origin = newOrigin;
         Math::Vector3D up = direction;
         Math::Vector3D right, forward;
         if (std::abs(up.getX()) < 0.9)
@@ -69,7 +67,6 @@ namespace RayTracer {
             ray.getDirection().getX() * up.getX() + ray.getDirection().getY() * up.getY() + ray.getDirection().getZ() * up.getZ(),
             ray.getDirection().getX() * forward.getX() + ray.getDirection().getY() * forward.getY() + ray.getDirection().getZ() * forward.getZ()
         );
-        // localRay.origin = Math::Point3D(transformedOrigin.getX(), transformedOrigin.getY(), transformedOrigin.getZ());
         Math::Vector3D normalizedTransformedDirection = transformedDirection.normalize();
 
         double R = majorRadius;
@@ -211,8 +208,6 @@ namespace RayTracer {
             Math::Point3D center(params[0], params[1], params[2]);
             double majorRadius = params[3];
             double minorRadius = params[4];
-            // Color color(params[5], params[6], params[7]);
-            // double reflection = (params.size() > 8) ? params[8] : 0.0;
 
             return std::make_unique<Donut>(center, majorRadius, minorRadius);
         }

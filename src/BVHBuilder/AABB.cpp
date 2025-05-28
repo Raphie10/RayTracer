@@ -112,15 +112,6 @@ namespace RayTracer {
             v = (hitInfo.getPoint().getY() - _min.getY()) / (_max.getY() - _min.getY());
         }
         material.getColor(u, v, faceId);
-        // const auto& texIt = material.textureList.find(faceId);
-        // if (texIt != material.textureList.end()) {
-        //     hitInfo.color = texIt->second.getTexture().getColor(u, v);
-        // } else if (material.texture.hasTexture()) {
-        //     hitInfo.color = material.texture.getColor(u, v);
-        // } else {
-        //     hitInfo.color = material._color;
-        // }
-
 
         return hitInfo;
     }

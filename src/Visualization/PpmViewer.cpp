@@ -31,7 +31,7 @@ namespace RayTracer {
     {
         stopDisplay();
         if (displayThread.joinable()) {
-            displayThread.join();  // Ensure thread exits before SFML objects get destroyed
+            displayThread.join();
         }
     }
 
@@ -92,10 +92,6 @@ namespace RayTracer {
 
     void PpmViewer::start_rendering()
     {
-        // if (displayActive.load()) {
-        //     return;
-        // }
-        // stopDisplay();
         lastRenderedLine = 0;
         displayActive.store(true);
 

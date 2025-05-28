@@ -46,15 +46,11 @@ namespace RayTracer {
             Math::Point3D getCenter() const { return center; }
             double getMajorRadius() const { return majorRadius; }
             double getMinorRadius() const { return minorRadius; }
-            // Color getColor() const { return color; }
-            // double getReflection() const { return reflection; }
             Math::Vector3D getDirection() const { return direction; }
 
             void setCenter(const Math::Point3D& center) { this->center = center; }
             void setMajorRadius(double majorRadius) { this->majorRadius = majorRadius; }
             void setMinorRadius(double minorRadius) { this->minorRadius = minorRadius; }
-            // void setColor(const Color& color) { this->color = color; }
-            // void setReflection(double reflection) { this->reflection = reflection; }
             void setDirection(const Math::Vector3D& direction) { this->direction = direction.normalize(); }
     };
 

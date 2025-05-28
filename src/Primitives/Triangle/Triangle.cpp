@@ -75,9 +75,6 @@ namespace RayTracer
         auto det = edge1.dot(P);
         if (det < 1e-8f)
             return info;
-        // if (std::fabs(det) < 1e-8f) {
-        //     return info;
-        // }
         double f = 1 / det;
         Math::Vector3D S = ray.getOrigin() - vertex1;
         double u = (S.dot(P)) * f;

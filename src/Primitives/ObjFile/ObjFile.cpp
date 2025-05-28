@@ -159,7 +159,6 @@ namespace RayTracer {
         if (!file.is_open()) {
             std::cerr << "Unable to open file: " << fileName << std::endl;
             return;
-            // throw std::runtime_error("Unable to open file");
         }
         std::string buffer;
         std::string currentMaterial = "default";
@@ -207,14 +206,19 @@ namespace RayTracer {
                     std::replace(token.begin(), token.end(), '/', ' ');
                     std::stringstream tokenStream(token);
                     int index;
-                    int textureIndex;
+                    int textureIndex = 0;
                     tokenStream >> index;
                     if (tokenStream.peek() == ' ') {
                         tokenStream.ignore();
                         tokenStream >> textureIndex;
-                    } else {
-                        textureIndex = 0;
                     }
+
+                    // Convert negative indices
+                    if (index < 0)
+                        index = static_cast<int>(vertices.size()) + index + 1;
+                    if (textureIndex < 0)
+                        textureIndex = static_cast<int>(textureCoords.size()) + textureIndex + 1;
+
                     faceIndices.push_back(index);
                     textureIndices.push_back(textureIndex);
                 }
@@ -224,7 +228,6 @@ namespace RayTracer {
                         {textureIndices[0], textureIndices[i], textureIndices[i + 1]},
                         currentMaterial));
                 }
-
             }
         }
         std::cout << "Rendering " << _sides.size() << " polygons\n";

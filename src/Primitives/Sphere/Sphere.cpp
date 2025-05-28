@@ -37,13 +37,13 @@ namespace RayTracer {
 
         double discriminant = b * b - 4 * a * c;
 
-        if (discriminant < 0)
+        if (discriminant < 1e-6)
             return info;
 
         double t1 = (-b - sqrt(discriminant)) / (2.0 * a);
         double t2 = (-b + sqrt(discriminant)) / (2.0 * a);
         double t = (t1 > 0) ? t1 : t2;
-        if (t < 0)
+        if (t < 1e-6)
             return info;
         double u, v;
         info.setHit(true);

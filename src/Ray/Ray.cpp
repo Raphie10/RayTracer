@@ -16,7 +16,6 @@ namespace RayTracer
 {
     Color Ray::computeHitColor(HitInfo &info, const std::shared_ptr<Scene> &scene, int depth) const
     {
-        // float diffusionLight = 0.1;
         Color color = (info.getColor() * scene->getAmbientLight());
         for (const auto &light : scene->getLights()) {
             Color lightColor = light->computeLightingColor(info, *scene);
@@ -37,7 +36,7 @@ namespace RayTracer
         std::vector<HitInfo> hits;
         for (const auto& element : primitives) {
             HitInfo hitInfo = element->intersect(*this);
-            if (hitInfo.isHit() && hitInfo.getDistance() > 1e-6) {
+            if (hitInfo.isHit() && hitInfo.getDistance() > 1e-4) {
                 hits.push_back(hitInfo);
             }
         }

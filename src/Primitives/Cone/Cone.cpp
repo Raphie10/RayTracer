@@ -126,8 +126,6 @@ namespace RayTracer {
             double radius = params[3];
             double height = params[4];
             Math::Vector3D direction(params[5], params[6], params[7]);
-            // Color color(params[8], params[9], params[10]);
-            // double reflection = (params.size() > 11) ? params[11] : 0.0;
             return std::make_unique<Cone>(position, radius, height, direction);
         }
         return std::make_unique<Cone>(params);
