@@ -4,7 +4,7 @@ cd build
 cmake  -DENABLE_O3=ON ..
 cmake --build .
 if [ $? -ne 0 ]; then
-    echo "Build failed !"
+    echo "Build failed!"
     exit 1
 fi
 echo "Build complete !"
